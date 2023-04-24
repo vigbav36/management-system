@@ -1,0 +1,158 @@
+:root {
+   --dark-brown: #191308;
+   --light-brown: #322A26;
+   --purple: #9CA3DB;
+   --dark-blue: #454B66;
+   --light-blue: #677DB7;
+}
+
+body {
+   margin: 0 auto;
+   background-color: #c7cadd;
+   min-height: 100vh;
+
+   display: grid;
+   grid-template-columns: 1fr repeat(5, 1fr);
+   grid-template-rows: 1fr;
+}
+
+
+.nav_bar {
+   padding: 5px;
+   background-color: var(--dark-blue);
+   color: white;
+   grid-column-start: 1;
+   grid-column-end: 2;
+   grid-row-start: 1;
+   grid-row-end: 2;
+
+}
+
+.nav_bar a {
+
+   position: relative;
+   float: left;
+   text-decoration: none;
+   color: white;
+}
+
+.content_pane {
+
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-template-rows: 1fr 1fr 1.5fr;
+   column-gap: 20px;
+   row-gap: 20px;
+   margin: 20px;
+   grid-column-start: 2;
+   grid-column-end: 7;
+   grid-row-start: 1;
+   grid-row-end: 2;
+
+}
+
+.calendar {
+
+   position: relative;
+   background-color: #fff;
+   box-sizing: border-box;
+   box-shadow: 0 5px 50px rgba(#000, 0.5);
+   border-radius: 8px;
+   grid-row-start: 1;
+   grid-row-end: 2;
+   grid-column-start: 1;
+   grid-column-end: 2;
+
+
+}
+
+.calendar__date {
+   padding: 15px;
+   display: grid;
+   grid-template-columns: repeat(7, minmax(25px, 1fr));
+   grid-gap: 10px;
+   box-sizing: border-box;
+}
+
+
+.calendar__day {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 20px;
+   font-weight: 800;
+   color: var(--dark-blue);
+
+}
+
+.calendar__number {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 20px;
+   color: var(--light-blue);
+}
+
+.review_section {
+
+   border-radius: 8px;
+   color: #454B66;
+   background-color: white;
+   grid-row-start: 2;
+   grid-row-end: 3;
+   grid-column-start: 3;
+   grid-column-end: 5;
+}
+
+.pending_section {
+
+   border-radius: 8px;
+   color: #454B66;
+   background-color: white;
+   grid-row-start: 3;
+   grid-row-end: 4;
+   grid-column-start: 1;
+   grid-column-end: 5;
+}
+
+.emergency_section {
+
+   border-radius: 8px;
+   color: #454B66;
+   background-color: white;
+   grid-row-start: 2;
+   grid-row-end: 3;
+   grid-column-start: 1;
+   grid-column-end: 3;
+}
+
+.section_header {
+   background-color: white;
+   padding: 10px;
+   border-radius: 8px 8px 0px 0px;
+}
+
+.section_item {
+   background-color: var(--light-blue);
+   padding: 10px;
+   color: white;
+   margin: 5px;
+   border-radius: 8px;
+}
+
+.passes {
+   text-align: left;
+   margin: 10px;
+   height: 200px;
+   width: 100%;
+   overflow-x: hidden;
+   overflow-y: scroll;
+}
+
+tr {
+   height: fit-content;
+}
+td {
+   height: fit-content;
+   width: fit-content;
+}

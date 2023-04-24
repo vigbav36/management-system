@@ -1,0 +1,160 @@
+:root {
+    --dark-brown: #191308;
+    --light-brown:#322A26;
+    --purple:rgb(156, 163, 219);
+    --dark-blue: #454B66;
+    --light-blue: #677DB7;
+ }
+
+ body{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    min-height:100vh;
+    padding-bottom: 20px;
+    margin:0 auto;
+    flex-direction: column;
+    background-color: #c7cadd;
+ }
+
+ .nav_bar {
+    padding: 5px;
+    background-color: var(--light-brown);
+    color:white;
+    width: 96%;
+    margin: 20px;
+    border-radius: 8px;
+ }
+
+ .nav_bar a {
+
+    position: relative;
+    float: left;
+    text-decoration: none;
+    color: white;
+ }
+
+ .content_pane {
+
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 50px;
+ }
+
+ .calendar {
+
+    position: relative;
+    background-color: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 5px 50px rgba(#000, 0.5);
+    border-radius: 8px;
+    
+
+  }
+ .calendar__date {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(25px, 1fr));
+    grid-gap: 10px;
+    box-sizing: border-box;
+  }
+
+
+  .calendar__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    font-weight: 800;
+    color: var(--dark-blue);
+
+  }
+  
+  .calendar__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    color: var(--light-blue);
+    }
+    
+    .outpass_section {
+        grid-row-start: 1;
+        grid-row-end: 3;
+        border-radius: 8px;
+        background-color: white;
+        color:var(--dark-blue);
+    }
+ 
+    .pending_section{
+
+        border-radius: 8px;
+        background-color: white;
+        text-align: center;
+    }
+
+    .section_header {
+        background-color:var(--dark-blue);
+        color: white; 
+        padding: 10px;
+        border-radius: 8px 8px 0px 0px;
+        text-align: center;
+    }
+
+    .section_item {
+        background-color: var(--light-blue);
+        padding:10px;
+        color: white; 
+        margin: 5px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    fieldset {
+        margin:20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    button {
+        background-color: var(--purple);
+        height: 30px;
+        border:none;
+        border-radius: 8px;
+        padding: 5px;
+        color:white;
+    }
+
+    button:hover{
+        background-color: var(--dark-blue);
+        color:var(--light-blue);
+        border:1px var(--purple) solid;
+        box-shadow: 2px 2px 2px var(--purple);
+    }
+
+    li {
+        margin-top: 10px;
+    }
+
+    .status {
+        background-color: rgb(83, 138, 83);
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 15px;
+        text-align: center;
+    }
+
+    .outpass {
+        background-color: rgb(230, 232, 244);
+        margin: 15px;
+        border-radius: 8px;
+        padding: 10px;
+        
+    }
