@@ -2,6 +2,7 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "WEB-INF/lib/mysql-connector-j-8.0.32.jar",
+        "WEB-INF/lib/servlet-api.jar",
         "WEB-INF/lib/servlet-api.jar"
     ]
 }
