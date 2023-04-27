@@ -1,10 +1,11 @@
 package src;
 
 import java.io.*;
-import java.sql.*;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+//import User.*;
 
 public class Login extends HttpServlet {
 
@@ -12,38 +13,17 @@ public class Login extends HttpServlet {
     throws IOException, ServletException
     {
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
- 
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
-            
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
+        
+        String email=request.getParameter("email");
+        String password=request.getParameter("password");
 
-            String query = "SELECT * FROM user WHERE email = ?";
-
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1,email);
-
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                
-                String password_retieved = rs.getString("password");
-                //String type = rs.getString("type");
-                
-                if(password.equals(password_retieved)){
-                    request.setAttribute("name","varsha");
-                    RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\warden.jsp");
-                    view.forward(request, response);   
-                }
-            }
+        User user = new User(email);
+        
+        if(user.login(password) == 0){
+            request.setAttribute("name",user.name);
+            RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\warden.jsp");
+            view.forward(request, response);   
         }
-        catch(Exception e){
-            out.println(e);
-        }
-            
     }
 }
 
