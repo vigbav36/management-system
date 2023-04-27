@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="warden.css">
+        <link rel="stylesheet" href="css\warden.css">
     </head>
     <body>
             <div class="nav_bar">
                 <div style="width: 50%;float: left;margin-left: 15px;">
                     <h3>
-                        Welcome Vignesh!
+                        ${name}  
                     </h3>
                 </div>
                 <!--

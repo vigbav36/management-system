@@ -5,7 +5,7 @@
     <title>
         Student Profile
     </title>
-    <link rel="stylesheet" href="static/student.css">
+    <link rel="stylesheet" href="css\student.css">
 </head>
 
 <body>

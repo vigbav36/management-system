@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="outpass.css">
+        <link rel="stylesheet" href="css\outpass.css">
     </head>
     <body>
         <div class="nav_bar">

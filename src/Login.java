@@ -1,9 +1,10 @@
+package src;
 
 import java.io.*;
 import java.sql.*;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
+
 
 public class Login extends HttpServlet {
 
@@ -33,7 +34,8 @@ public class Login extends HttpServlet {
                 //String type = rs.getString("type");
                 
                 if(password.equals(password_retieved)){
-                    RequestDispatcher view = request.getRequestDispatcher("warden.html");
+                    request.setAttribute("name","varsha");
+                    RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\warden.jsp");
                     view.forward(request, response);   
                 }
             }
