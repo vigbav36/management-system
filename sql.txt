@@ -9,9 +9,3 @@ VALUES (1, 0, 'normal', 'Going home', 'requested', '2023-04-29', '2023-04-30');
 
 INSERT INTO warden (id,hostel_no,designation)
 VALUES ('0', '6', 'hostel 6 warden');
-
-
-SELECT * FROM warden WHERE id = (select id from user where email = "warden@ssn.edu.in");
-
-
-SELECT * FROM outpass WHERE type = "normal" and student_id in (select id from student where hostel_no = "6");
