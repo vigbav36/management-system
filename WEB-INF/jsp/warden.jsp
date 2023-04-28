@@ -1,3 +1,5 @@
+<%@ page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -122,7 +124,6 @@
                                 </h3>
                         </div>
                     </div>
-                    <h1>${normalOutpasses}</h1>
                         <table class="passes">
                             <thead>
                                 <tr style="color:#454B66;">
@@ -133,21 +134,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
                                 <c:forEach var="outpass" items="${normalOutpasses}">
                                 <tr>
                                     <td>
-                                        1.
+                                        <c:out value="helloe ${outpass.student_id}"/>
                                     </td>
                                     <td>
-                                        
+                                        ${outpass.student_id}
                                     </td>
                                     <td>
-                                        
+                                        ${outpass.out_time}
                                     </td>
                                     <td>
                                         <p style="background-color: green;border-radius: 8px;padding:2px;">
-                                           
+                                           ${outpass.status}
                                         </p>
                                     </td>
                                 </tr>
