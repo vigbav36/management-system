@@ -56,32 +56,34 @@ public class Warden extends User{
 
         try{
 
-            Class.forName("com.mysql.jdbc.Driver");
+            //Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
             
-            String query = "SELECT * FROM outpass WHERE type = ? and hostel_no = ?";
+            String query = "SELECT * FROM outpass WHERE type = ? and student_id in (select id from student where hostel_no = ?)";
             PreparedStatement ps = con.prepareStatement(query);
 
             ps.setString(1,"normal");
             ps.setString(2,this.hostel_no);
 
             ResultSet rs = ps.executeQuery();
-
             while(rs.next()){
+                try{
+                    Outpass outpass = new Outpass(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7)
+                    );
+                    normalOutpasses.add(outpass);
+                }
 
-                Outpass outpass = new Outpass(
-                    rs.getString(0),
-                    rs.getString(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4),
-                    rs.getString(5),
-                    rs.getString(6)
-                );
-
-                normalOutpasses.add(outpass);
+                catch (Exception e){
+                    System.out.println(e.toString());
+                }
             }
-
             return normalOutpasses;
 
         }
@@ -96,7 +98,7 @@ public class Warden extends User{
 
         try{
 
-            Class.forName("com.mysql.jdbc.Driver");
+           //Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
             
             String query = "SELECT * FROM outpass WHERE type = ? and hostel_no = ?";
@@ -106,19 +108,18 @@ public class Warden extends User{
             ps.setString(2,this.hostel_no);
 
             ResultSet rs = ps.executeQuery();
-
+          
             while(rs.next()){
-
+                System.out.println("hi2");
                 Outpass outpass = new Outpass(
-                    rs.getString(0),
                     rs.getString(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getString(5),
-                    rs.getString(6)
+                    rs.getString(6),
+                    rs.getString(7)
                 );
-
                 normalOutpasses.add(outpass);
             }
 
@@ -126,7 +127,19 @@ public class Warden extends User{
 
         }
         catch (Exception e){
+            System.out.println(e.toString());
             return null;
         }
     }
+
+    /* 
+    public static void main(String[] args) {
+        Warden warden = new Warden("varsha", "warden@ssn.edu.in");
+        List<Outpass> res = warden.getNormalOutpasses();
+
+        for(Outpass o: res){
+            System.out.println(o.student_id);
+        }
+    }
+    */
 }
