@@ -10,5 +10,30 @@ VALUES (1, 0, 'normal', 'Going home', 'requested', '2023-04-29', '2023-04-30');
 INSERT INTO warden (id,hostel_no,designation)
 VALUES ('0', '6', 'hostel 6 warden');
 
+-----------------------------------------------------------------------------------------------
+NEW STUFF
+------------------------------------------------------------------------------------------------
 
-SELECT * FROM warden WHERE id = (select id from user where email = "warden@ssn.edu.in");
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud2@ssn.edu.in', '1234', 'student', 2, 'bavesh');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud3@ssn.edu.in', '1234', 'student', 3, 'sumon');
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('2', 'FD-13', '6', 1);
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('3', 'D-11', '5', 1);
+
+INSERT INTO outpass (student_id, outpass_id, type, reason, status, in_time, out_time)
+VALUES (2, 1, 'normal', 'Going shopping', 'requested', '2023-04-29', '2023-04-30');
+
+INSERT INTO outpass (student_id, outpass_id, type, reason, status, in_time, out_time)
+VALUES (3, 2, 'emergency', 'Going shopping', 'requested', '2023-04-29', '2023-04-30');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('warden2@ssn.edu.in', '1234', 'warden', 122, 'Sham');
+
+INSERT INTO warden(id,hostel_no,designation)
+VALUES (122,'5','hostel 5 warden');

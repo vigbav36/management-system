@@ -50,22 +50,38 @@ public class Warden extends User{
         return "User "+this.name+" and email = "+this.email;
     }
 
-    public List<Outpass> getNormalOutpasses(){
+    public List<Outpass> getOutpasses(String type, String status){
 
-        List<Outpass> normalOutpasses = new ArrayList<Outpass>();
+        List<Outpass> Outpasses = new ArrayList<Outpass>();
 
         try{
 
             //Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
-            
-            String query = "SELECT * FROM outpass WHERE type = ? and student_id in (select id from student where hostel_no = ?)";
-            PreparedStatement ps = con.prepareStatement(query);
+            String query;
+            PreparedStatement ps;
+            ResultSet rs;
 
-            ps.setString(1,"normal");
-            ps.setString(2,this.hostel_no);
-
-            ResultSet rs = ps.executeQuery();
+            if(type!=null){
+                if(type.equals("all")){
+                    query = "SELECT * FROM outpass where student_id in (select id from student where hostel_no = ?)";
+                    ps = con.prepareStatement(query);
+                    ps.setString(1,this.hostel_no);
+                }
+                else{
+                    query = "SELECT * FROM outpass WHERE type = ? and student_id in (select id from student where hostel_no = ?)";
+                    ps = con.prepareStatement(query);
+                    ps.setString(1,type);
+                    ps.setString(2,this.hostel_no);
+                }
+                rs = ps.executeQuery();
+            }
+            else{
+                query = "SELECT * FROM outpass where status= ? and student_id in (select id from student where hostel_no = ?)";
+                ps = con.prepareStatement(query);
+                ps.setString(1,status);
+                rs = ps.executeQuery();
+            }
             while(rs.next()){
                 try{
                     Outpass outpass = new Outpass(
@@ -77,69 +93,17 @@ public class Warden extends User{
                         rs.getString(6),
                         rs.getString(7)
                     );
-                    normalOutpasses.add(outpass);
+                    Outpasses.add(outpass);
                 }
 
                 catch (Exception e){
                     System.out.println(e.toString());
                 }
             }
-            return normalOutpasses;
-
+            return Outpasses;
         }
         catch (Exception e){
             return null;
         }
     }
-
-    public List<Outpass> getEmergencyOutpasses(){
-
-        List<Outpass> normalOutpasses = new ArrayList<Outpass>();
-
-        try{
-
-           //Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
-            
-            String query = "SELECT * FROM outpass WHERE type = ? and hostel_no = ?";
-            PreparedStatement ps = con.prepareStatement(query);
-
-            ps.setString(1,"emergency");
-            ps.setString(2,this.hostel_no);
-
-            ResultSet rs = ps.executeQuery();
-          
-            while(rs.next()){
-                System.out.println("hi2");
-                Outpass outpass = new Outpass(
-                    rs.getString(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4),
-                    rs.getString(5),
-                    rs.getString(6),
-                    rs.getString(7)
-                );
-                normalOutpasses.add(outpass);
-            }
-
-            return normalOutpasses;
-
-        }
-        catch (Exception e){
-            System.out.println(e.toString());
-            return null;
-        }
-    }
-
-    /* 
-    public static void main(String[] args) {
-        Warden warden = new Warden("varsha", "warden@ssn.edu.in");
-        List<Outpass> res = warden.getNormalOutpasses();
-
-        for(Outpass o: res){
-            System.out.println(o.student_id);
-        }
-    }
-    */
 }

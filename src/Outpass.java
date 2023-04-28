@@ -1,8 +1,9 @@
 package src;
+import java.util.*;
 
 public class Outpass {
 
-    String student_id;
+    Student student;
     String outpass_id;
     String in_time;
     String out_time;
@@ -12,7 +13,7 @@ public class Outpass {
 
     
     Outpass(String student_id,String outpass_id,String in_time,String out_time,String type,String reason,String status){
-        this.student_id = student_id;
+        this.student = new Student(student_id);
         this.outpass_id = outpass_id;
         this.in_time = in_time;
         this.out_time = out_time;
@@ -36,12 +37,13 @@ public class Outpass {
     public String getStatus() {
         return status;
     }
-    public String getStudent_id() {
-        return student_id;
+    public Student getStudent() {
+        return student;
     }
     public String getType() {
         return type;
     }
+
 }
 
 

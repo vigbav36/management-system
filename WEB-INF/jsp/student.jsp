@@ -5,18 +5,18 @@
     <title>
         Student Profile
     </title>
-    <link rel="stylesheet" href="css\student.css">
+    <link rel="stylesheet" href="..\css\student.css">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Fira+Sans+Condensed">
 </head>
 
 <body>
     <div class="nav_bar">
-        <div style="width: 50%;float: left;margin-left: 15px;">
-            <h3>
-                Welcome Vignesh!
-            </h3>
+        <div style="border-bottom: 1px white solid;">
+            <p style="font-size: 15px;margin-bottom: 0;padding-bottom: 0;">Welcome</p>
+            <p style="font-size: 25px;margin-top: 0;padding-top: 0;">${name}</p>
         </div>
-        <div style="margin-left:90%">
-            <a href="/">
+        <div>
+            <a href="/" style="margin:0;font-size:10px;color: gainsboro">
                 <h3>
                     Sign Out
                 </h3>
@@ -24,24 +24,28 @@
         </div>
     </div>
     <div class="content_pane">
+        <div>
+            <h1 style="color:#454B66;">Dashboard</h1>
+        </div>
+        <!--
         <div class="outpass_section">
             <div class="section_header">
-                    <h3>Outpass Status</h3>
+                <h3>Outpass Status</h3>
             </div>
             <div class="passes">
                 <div class="outpass">
-                            <div style="background-color: #c9cce0;border-radius: 8px;padding: 10px;margin: 10px;">
-                                <div style="float:left;">
-                                    <img src="papertray.png" height="100px" width="100px">
-                                </div>
-                                <div style="margin-left: 30%;">
-                                    <ul style="list-style-type:none;">
-                                        <li>Pass No: 4 </li>
-                                        <li>Name: Vignesh SM</li>
-                                        <li>ID: 205001123</li>
-                                    </ul>
-                                </div>
-                            </div>
+                    <div style="background-color: #c9cce0;border-radius: 8px;padding: 10px;margin: 10px;">
+                        <div style="float:left;">
+                            <img src="papertray.png" height="100px" width="100px">
+                        </div>
+                        <div style="margin-left: 30%;">
+                            <ul style="list-style-type:none;">
+                                <li>Pass No: 4 </li>
+                                <li>Name: Vignesh SM</li>
+                                <li>ID: 205001123</li>
+                            </ul>
+                        </div>
+                    </div>
                     <ul style="list-style-type:none;">
                         <li> Out Date: 23/10/22</li>
                         <li>Out time: 3:00 pm</li>
@@ -56,50 +60,77 @@
                 </div>
             </div>
         </div>
-        <!--
+        -->
         <div class="outpass_section">
             <div class="section_header">
-                    <h3>Request Outpass</h3>
+                <h3>Request Outpass</h3>
             </div>
             <div class="passes">
                 <form class="request_form">
                     <fieldset>
-                        <legend><strong>Outpass 4</strong></legend>
-                        <div style="margin-top:20px;">
+                        <legend>
+                            <strong>Outpass 4</strong>
+                        </legend>
+                        <div style="background-color: #c9cce0;border-radius: 8px;padding: 10px;margin: 10px;">
+                            <div style="float:left;">
+                                <img src="../images/papertray.png" height="100px" width="100px">
+                            </div>
+                            <div style="margin-left: 30%;">
+                                <ul style="list-style-type:none;">
+                                    <li>Name: Vignesh SM</li>
+                                    <li>ID: 205001123</li>
+                                    <li>Hostel: D-17 LH-4</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                    <div class="form_div">
+                        <div class="left_form_elt">
                             <label>Out Date: </label>
                             <input type="date" class="input_field">
+                        </div>
+                        <div class="right_form_elt">
                             <label>Out time: </label>
                             <input type="datetime" class="input_field">
                         </div>
-                       <div style="margin-top:20px;">
-                        <label>In Date: </label>
-                        <input type="date" class="input_field">
-                        <label>In time: </label>
-                        <input type="datetime" class="input_field">
-                       </div>
-                       <div style="margin-top:20px;">
+                    </div>
+                    <div class="form_div">
+                        <div class="left_form_elt">
+                            <label>In Date: </label>
+                            <input type="date" class="input_field">
+                        </div>
+                        <div class="right_form_elt">
+                            <label>In time: </label>
+                            <input type="datetime" class="input_field">
+                        </div>
+                    </div>
+                    <div class="form_div">
                         <label>Priority: </label>
-                        <input type="radio"><label>Emergency</label>
-                        <input type="radio"><label>Normal</label>
-                       </div>
-                       <div style="margin-top:20px;">
+                        <input list="priority" name="priority" id="priority">
+                        <datalist id="priority">
+                            <option value="Emergency">
+                            <option value="Normal">
+                        </datalist>
+                    </div>
+                    <div class="form_div">
                         <label>Reason:</label><br>
-                        <textarea rows="5" cols="50" style="height: 80px;box-sizing: border-box;resize: none;"></textarea>
+                        <textarea rows="5" cols="50"
+                            style="height: 80px;box-sizing: border-box;width:100%;resize: none;"></textarea>
 
                         </textarea>
-                       </div>
-                       <div style="margin-top:20px;">
-                            <center>
-                                <button>
-                                    Submit
-                                </button>
-                            </center>
-                       </div>
-                    </fieldset>
-                    
+                    </div>
+                    <div class="form_div">
+                        <center>
+                            <button>
+                                Submit
+                            </button>
+                        </center>
+                    </div>
+
                 </form>
             </div>
-        </div>-->
+        </div>
         <div class="calendar">
             <div class="calendar__date">
                 <div class="calendar__day">M</div>
@@ -145,14 +176,20 @@
             </div>
         </div>
         <div class="pending_section">
-            <p
-                style="font-size:40px;margin-left:40%;width:20%;padding:2px;border-radius: 8px;box-shadow: 2px 2px 4px gray;">
-                4/5
-            </p>
-            <div class="section_item">
-                <a href="/" style="text-decoration: none;color:rgba(255,255,255,0.6);">
-                    View Outpass History
-                </a>
+            <div class="section_header">
+                <h3>Outpass Count</h3>
+            </div>
+            <div class="card">
+                <p style="font-size:75px;color:#454B66">
+                    <strong>
+                        4/5
+                    </strong>
+                </p>
+                <div class="passes">
+                    <a href="/" style="text-decoration: none;color: #454B66;">
+                        Click to view outpass history
+                    </a>
+                </div>
             </div>
         </div>
     </div>
