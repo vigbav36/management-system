@@ -7,4 +7,12 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>WardenPage</servlet-name>
+        <servlet-class>src.WardenPage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WardenPage</servlet-name>
+        <url-pattern>/warden</url-pattern>
+    </servlet-mapping>
 </web-app>

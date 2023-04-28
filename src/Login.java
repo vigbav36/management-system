@@ -5,7 +5,6 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-//import User.*;
 
 public class Login extends HttpServlet {
 
@@ -18,14 +17,19 @@ public class Login extends HttpServlet {
         String password=request.getParameter("password");
 
         User user = new User(email);
-        
-        if(user.login(password) == 0){
-            request.setAttribute("name",user.name);
-            RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\warden.jsp");
-            view.forward(request, response);   
+        String type = user.login(password);
+
+        if(type!=null){
+
+            request.setAttribute("name", user.name);
+
+            if(type.equals("warden")){
+                RequestDispatcher view = request.getRequestDispatcher("/warden");
+                view.forward(request, response);   
+            }   
         }
     }
 }
 
 
-///javac -cp "C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\WEB-INF\lib\mysql-connector-j-8.0.32.jar;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\WEB-INF\lib\servlet-api.jar" -d "WEb-INF\classes" --release 8 Login.java
+//javac -cp "C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\WEB-INF\lib\mysql-connector-j-8.0.32.jar;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\WEB-INF\lib\servlet-api.jar" -d "WEb-INF\classes" --release 8 Login.java

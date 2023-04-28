@@ -7,7 +7,7 @@
             <div class="nav_bar">
                 <div style="width: 50%;float: left;margin-left: 15px;">
                     <h3>
-                        ${name}  
+                        WELCOME ${warden.name}
                     </h3>
                 </div>
                 <!--
@@ -122,6 +122,7 @@
                                 </h3>
                         </div>
                     </div>
+                    <h1>${normalOutpasses}</h1>
                         <table class="passes">
                             <thead>
                                 <tr style="color:#454B66;">
@@ -132,22 +133,25 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                
+                                <c:forEach var="outpass" items="${normalOutpasses}">
                                 <tr>
                                     <td>
                                         1.
                                     </td>
                                     <td>
-                                        Varsha
+                                        
                                     </td>
                                     <td>
-                                        6:00 pm
+                                        
                                     </td>
                                     <td>
                                         <p style="background-color: green;border-radius: 8px;padding:2px;">
-                                            Approved
+                                           
                                         </p>
                                     </td>
                                 </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                 </div>

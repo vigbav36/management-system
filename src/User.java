@@ -7,6 +7,7 @@ import java.sql.*;
 public class User {
     public String name;
     public String email;
+    public String type;
 
     User(String name, String email){
         this.name = name;
@@ -17,7 +18,14 @@ public class User {
         this.email = email;
     }
 
-    public int login(String password) throws IOException, ServletException{
+    public String getName() {
+        return name;
+    }
+    public String getEmail() {
+        return email;
+    }
+    
+    public String login(String password) throws IOException, ServletException{
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
@@ -31,19 +39,19 @@ public class User {
             while (rs.next()) {
                 String password_retieved = rs.getString("password");
                 if(password.equals(password_retieved)){
-                  this.name = rs.getString("name");
-                  return 0;
+                    this.name = rs.getString("name");
+                    this.type = rs.getString("type");
+                    return this.type;
                 }
                 else{
-                    return 1;
+                    return null;
                 }
             }
-            return 1;
+            return null;
         }
         catch (Exception e){
-            return 1;
+            return null;
         }
-        
     }
 
 }

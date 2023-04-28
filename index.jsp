@@ -27,6 +27,7 @@ and open the template in the editor.
             <form class="login-form" action="http://localhost:8080/outpass/login" method="post">
                 <input type="text" id="email" name="email" placeholder="Email">
                 <input type="password" id="password" name="password" placeholder="Password">
+                <h5>${message}</h5>
                 <input type="submit" id="submit" value="LOGIN">
             </form>
         </div>

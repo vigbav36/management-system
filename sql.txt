@@ -1,0 +1,14 @@
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud1@ssn.edu.in', '1234', 'student', 1, 'vignesh');
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('1', 'FD-14', '6', 1);
+
+INSERT INTO outpass (student_id, outpass_id, type, reason, status, in_time, out_time)
+VALUES (1, 0, 'normal', 'Going home', 'requested', '2023-04-29', '2023-04-30');
+
+INSERT INTO warden (id,hostel_no,designation)
+VALUES ('0', '6', 'hostel 6 warden');
+
+
+SELECT * FROM warden WHERE id = (select id from user where email = "warden@ssn.edu.in");
