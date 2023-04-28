@@ -21,8 +21,9 @@ public class WardenPage extends HttpServlet {
         
         Warden warden = new Warden(name,email);
 
-        List<Outpass> normalOutpasses = warden.getNormalOutpasses();
-        List<Outpass> emergencyOutpasses = warden.getEmergencyOutpasses();
+        List<Outpass> normalOutpasses = warden.getOutpasses("all",null);
+        List<Outpass> emergencyOutpasses = warden.getOutpasses("emergency",null);
+        List<Outpass> reviewOutpasses = warden.getOutpasses(null, "review");
 
         request.setAttribute("email", email);
         request.setAttribute("name", name);
@@ -34,7 +35,9 @@ public class WardenPage extends HttpServlet {
             request.setAttribute("normalOutpasses", "exception");
         }
         request.setAttribute("emergencyOutpasses", emergencyOutpasses);
-        request.setAttribute("warden", warden); 
+        request.setAttribute("reviewOutpasses", reviewOutpasses);
+
+        request.setAttribute("warden", warden);     
 
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\warden.jsp");
         view.forward(request, response);   

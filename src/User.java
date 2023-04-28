@@ -8,6 +8,7 @@ public class User {
     public String name;
     public String email;
     public String type;
+    public String id;
 
     User(String name, String email){
         this.name = name;
@@ -18,6 +19,9 @@ public class User {
         this.email = email;
     }
 
+    User(){
+        this.name="";
+    }
     public String getName() {
         return name;
     }
