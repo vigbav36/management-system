@@ -12,3 +12,6 @@ VALUES ('0', '6', 'hostel 6 warden');
 
 
 SELECT * FROM warden WHERE id = (select id from user where email = "warden@ssn.edu.in");
+
+
+SELECT * FROM outpass WHERE type = "normal" and student_id in (select id from student where hostel_no = "6");
