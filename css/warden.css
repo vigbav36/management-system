@@ -200,3 +200,6 @@ h3 {
 table {
    font-size: 15px;
 }
+img:hover {
+   background-color: rgba(0,0,0,0.2);
+}

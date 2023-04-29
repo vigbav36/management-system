@@ -1,6 +1,7 @@
+<!--
 <%@ page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+-->
 <!DOCTYPE html>
 <html>
 
@@ -156,9 +157,14 @@
                                 ${outpass.out_time}
                             </td>
                             <td>
-                                <p style="background-color: green;border-radius: 8px;padding:2px;">
-                                   ${outpass.status}
-                                </p>
+                                <div>
+                                   <h4 style="text-align:center;color: green;border-radius: 8px;padding:5px;border:2px green solid;margin:0;float:left;">
+                                    ${outpass.status}
+                                   </h4>
+                                   <a href="/">
+                                   <img style="margin-left:15px;margin-top: 7px;" src="images\arrow.png" width="15px" height="15px">
+                                   </a>
+                                </div>
                             </td>
                         </tr>
                     </c:forEach>
