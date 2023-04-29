@@ -37,3 +37,13 @@ VALUES ('warden2@ssn.edu.in', '1234', 'warden', 122, 'Sham');
 
 INSERT INTO warden(id,hostel_no,designation)
 VALUES (122,'5','hostel 5 warden');
+
+
+ALTER TABLE student 
+ADD branch VARCHAR(50), 
+ADD year INT;
+
+
+UPDATE student 
+SET branch = 'CSE', year = 3
+WHERE id in (1,2,3);
