@@ -1,10 +1,9 @@
 package src;
 
-import java.io.*;
-import java.util.*;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+import java.io.IOException;
 
 /*
  * Servlet to display the warden view 
@@ -19,7 +18,7 @@ public class OutpassPage extends HttpServlet {
 
         String warden_id = request.getParameter("wid");
         String outpass_id = request.getParameter("oid");
-        String student_id = request.getParameter("sid");
+        //String student_id = request.getParameter("sid");
 
         if(warden_id.equals("") || outpass_id.equals("")){
             RequestDispatcher view = request.getRequestDispatcher("/");
@@ -33,7 +32,7 @@ public class OutpassPage extends HttpServlet {
         request.setAttribute("outpass", outpass);
         request.setAttribute("warden_id", warden_id);
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\outpass.jsp");
-        view.forward(request, response);  
+        view.forward(request, response);          
     }
 }
 

@@ -23,6 +23,10 @@ public class Warden extends User{
             while(rs.next()){
                 return rs.getString("hostel_no");
             }
+           
+            con.close();
+            ps.close();
+
             return "6g";
         }
         catch(Exception e){
@@ -80,6 +84,8 @@ public class Warden extends User{
                     ps.setString(2,this.hostel_no);
                 }
                 rs = ps.executeQuery();
+
+                
             }
             else{
                 query = "SELECT * FROM outpass where status= ? and student_id in (select id from student where hostel_no = ?)";
@@ -99,16 +105,27 @@ public class Warden extends User{
                         rs.getString(7)
                     );
                     Outpasses.add(outpass);
+                    
                 }
 
                 catch (Exception e){
                     System.out.println(e.toString());
                 }
             }
+            rs.close();
+            con.close();
+            ps.close();
             return Outpasses;
         }
         catch (Exception e){
+            System.out.println(e.toString());
+
             return null;
         }
+    }
+
+    public static void main(String[] args) {
+        Warden warden = new Warden("varsha","warden@ssn.edu.in");
+        System.out.println(warden.getOutpasses("all",null));
     }
 }

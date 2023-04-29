@@ -1,6 +1,5 @@
 <!--
-<!--
-<%@ page import="java.util.List"%>
+<%@ page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 -->
 <!DOCTYPE html>
@@ -76,7 +75,7 @@
             </div>
             <div class="num_left">
                 <h2>
-                    ${normalOutpasses.size()} passes to be Reviewed
+                   passes to be Reviewed
                 </h2>
             </div>
         </div>

@@ -77,6 +77,9 @@ public class User {
             while (rs.next()) {
                 this.id = rs.getString("id");
             }
+
+            con.close();
+            ps.close();
         }
         catch (Exception e){
             return;

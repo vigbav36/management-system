@@ -30,6 +30,9 @@ public class Student extends User{
                 this.branch = rs.getString("branch");
                 this.year=rs.getInt("year");
             }
+
+            con.close();
+            ps.close();
         }
         catch(Exception e){
             System.out.println("error");

@@ -150,18 +150,23 @@
             <div class="choice">
                 <table>
                     <tr>
-                        <td>
-                            <div class="button"><a href="/accept?oid=${outpass.outpass_id}&wid=${warden_id}"><h3>Accept</h3></a></div>
-                        </td>
-                        <td>
-                            <div class="button"><a><h3>Reject</h3></a></div>
-                        </td>
-                        <td>
-                            <div class="button"><a><h3>Review</h3></a></div>
-                        </td>
+                        <c:choose>
+                            <c:when test="${outpass.status == 'requested'}">
+                                <td>
+                                    <div class="button"><a href="http://localhost:8080/outpass/accept?oid=${outpass.outpass_id}&wid=${warden_id}"><h3>Accept</h3></a></div>
+                                </td>
+                           
+                                <td>
+                                    <div class="button"><a><h3>Reject</h3></a></div>
+                                </td>
+                                <td>
+                                    <div class="button"><a><h3>Review</h3></a></div>
+                                </td>
+                            </c:when>
+                        </c:choose>
                     </tr>
                 </table>
-        </div>
+            </div>
         </div>
     </body>
 </html>

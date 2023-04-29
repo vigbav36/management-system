@@ -38,6 +38,8 @@ public class Outpass {
                 this.reason = rs.getString(6);
                 this.status = rs.getString(7);
             }
+            con.close();
+            ps.close();
         }
         catch(Exception e){
             this.reason = "EXCEPTION "+ e.toString() ;
@@ -63,6 +65,26 @@ public class Outpass {
     }
     public String getType() {
         return type;
+    }
+
+    public void updateStatus(String status){
+        try{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
+            String query = "UPDATE outpass SET status = ? WHERE outpass_id = ?";
+        
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, status);
+            ps.setString(2,this.outpass_id);
+            ps.executeUpdate();
+            this.status = status;
+            
+            con.close();
+            ps.close();
+            
+        }
+        catch(Exception e){
+            this.reason = "EXCEPTION "+ e.toString() ;
+        }
     }
 
 }

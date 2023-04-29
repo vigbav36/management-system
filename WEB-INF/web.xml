@@ -15,12 +15,12 @@
         <servlet-name>WardenPage</servlet-name>
         <url-pattern>/warden</url-pattern>
     </servlet-mapping>
-    <servlet>
+    <servlet> 
         <servlet-name>OutpassPage</servlet-name>
         <servlet-class>src.OutpassPage</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>OutpassPage</servlet-name>
+        <servlet-name>OutpassPage</servlet-name> 
         <url-pattern>/view</url-pattern>
     </servlet-mapping>
     <servlet>
