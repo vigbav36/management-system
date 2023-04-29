@@ -38,7 +38,7 @@ public class WardenPage extends HttpServlet {
         request.setAttribute("reviewOutpasses", reviewOutpasses);
 
         request.setAttribute("warden", warden);     
-
+        
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\warden.jsp");
         view.forward(request, response);   
     }

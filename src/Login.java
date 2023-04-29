@@ -23,6 +23,9 @@ public class Login extends HttpServlet {
 
             request.setAttribute("name", user.name);
 
+            HttpSession session = request.getSession(true);
+            session.setAttribute("user", user);
+
             if(type.equals("warden")){
                 RequestDispatcher view = request.getRequestDispatcher("/warden");
                 view.forward(request, response);   

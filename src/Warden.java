@@ -36,6 +36,11 @@ public class Warden extends User{
         return super.getName();
     }
 
+    @Override
+    public String getId() {
+        return super.getId();
+    }
+
     public String getEmail(){
         return this.email;
     }

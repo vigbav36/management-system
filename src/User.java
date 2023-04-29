@@ -13,14 +13,17 @@ public class User {
     User(String name, String email){
         this.name = name;
         this.email = email;
+        init();
     }
 
     User(String email){
         this.email = email;
+        init();
     }
 
     User(){
         this.name="";
+        init();
     }
     public String getName() {
         return name;
@@ -28,7 +31,9 @@ public class User {
     public String getEmail() {
         return email;
     }
-    
+    public String getId() {
+        return id;
+    }
     public String login(String password) throws IOException, ServletException{
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -58,4 +63,23 @@ public class User {
         }
     }
 
+    public void init(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
+            String query = "SELECT id FROM user WHERE email = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+
+            ps.setString(1,this.email);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                this.id = rs.getString("id");
+            }
+        }
+        catch (Exception e){
+            return;
+        }
+    }
 }

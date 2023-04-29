@@ -7,6 +7,8 @@ public class Student extends User{
     String hostel_no;
     String room_no;
     int outpasses;
+    String branch;
+    int year;
 
     Student(String id){
         this.id = id;
@@ -25,6 +27,8 @@ public class Student extends User{
                 this.room_no = rs.getString("room_no");
                 this.name = rs.getString("name");
                 this.email = rs.getString("email");
+                this.branch = rs.getString("branch");
+                this.year=rs.getInt("year");
             }
         }
         catch(Exception e){
@@ -43,6 +47,12 @@ public class Student extends User{
     }
     public int getOutpasses() {
         return outpasses;
+    }
+    public int getYear() {
+        return year;
+    }
+    public String getBranch() {
+        return branch;
     }
 }
 
