@@ -30,6 +30,10 @@ public class Login extends HttpServlet {
                 RequestDispatcher view = request.getRequestDispatcher("/warden");
                 view.forward(request, response);   
             }   
+            else if(type.equals("student")){
+                RequestDispatcher view = request.getRequestDispatcher("/student");
+                view.forward(request, response);   
+            }
         }
     }
 

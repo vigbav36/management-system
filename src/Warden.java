@@ -12,6 +12,10 @@ public class Warden extends User{
         this.hostel_no = getHostelNo();
     }
 
+    Warden(String email){
+        super(email);
+    }
+
     String getHostelNo(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -27,10 +31,10 @@ public class Warden extends User{
             con.close();
             ps.close();
 
-            return "6g";
+            return "";
         }
         catch(Exception e){
-            return "66";
+            return "";
         }
     }
 
