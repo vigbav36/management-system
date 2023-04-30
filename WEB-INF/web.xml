@@ -15,4 +15,36 @@
         <servlet-name>WardenPage</servlet-name>
         <url-pattern>/warden</url-pattern>
     </servlet-mapping>
+    <servlet> 
+        <servlet-name>OutpassPage</servlet-name>
+        <servlet-class>src.OutpassPage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OutpassPage</servlet-name> 
+        <url-pattern>/view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Accept</servlet-name>
+        <servlet-class>src.Accept</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Accept</servlet-name>
+        <url-pattern>/accept</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Reject</servlet-name>
+        <servlet-class>src.Reject</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Reject</servlet-name>
+        <url-pattern>/reject</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>StudentPage</servlet-name>
+        <servlet-class>src.StudentPage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentPage</servlet-name>
+        <url-pattern>/student</url-pattern>
+    </servlet-mapping>
 </web-app>

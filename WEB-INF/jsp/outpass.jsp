@@ -1,7 +1,11 @@
+<!--
+<%@ page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+-->
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="..\css\outpass.css">
+        <link rel="stylesheet" href="css\outpass.css">
         <link rel="stylesheet" href="https://fonts.google.com/specimen/Fira+Sans+Condensed">
     </head>
     <body>
@@ -43,10 +47,10 @@
                                 <div><h3>NAME</h3></div>
                             </td>
                             <td>
-                                <div><h3>Vignesh</h3></div>
+                                <div><h3>${outpass.student.name}</h3></div>
                             </td>
                             <td rowspan="5">
-                                <img src="../images/profile.avif" height="150px">
+                                <img src="images/profile.avif" height="150px">
                             </td>
                         </tr>
                         <tr>
@@ -54,15 +58,15 @@
                                 <div><h3>YEAR</h3></div>
                             </td>
                             <td>
-                                <div><h3>3rd</h3></div>
+                                <div><h3>${outpass.student.year}</h3></div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div><h3>STREAM</h3></div>
+                                <div><h3>BRANCH</h3></div>
                             </td>
                             <td>
-                                <div><h3>CSE</h3></div>
+                                <div><h3>${outpass.student.branch}</h3></div>
                             </td>
                         </tr>
                         <tr>
@@ -70,7 +74,7 @@
                                 <div><h3>HOSTEL</h3></div>
                             </td>
                             <td>
-                                <div><h3>F</h3></div>
+                                <div><h3>${outpass.student.hostel_no}</h3></div>
                             </td>
                         </tr>
                         <tr>
@@ -78,9 +82,10 @@
                                 <div><h3>ROOM</h3></div>
                             </td>
                             <td>
-                                <div><h3>FD-14</h3></div>
+                                <div><h3>${outpass.student.room_no}</h3></div>
                             </td>
                         </tr>
+                        
                     </table>    
                 </div>
             </div>
@@ -100,43 +105,43 @@
                 <table>
                     <tr>
                         <td>
-                            <div><h3>NAME</h3></div>
+                            <div><h3>TYPE</h3></div>
                         </td>
                         <td>
-                            <div><h3>Vignesh</h3></div>
+                            <div><h3>${outpass.type}</h3></div>
                         </td>
 
                     </tr>
                     <tr>
                         <td>
-                            <div><h3>YEAR</h3></div>
+                            <div><h3>OUT-DATE</h3></div>
                         </td>
                         <td>
-                            <div><h3>3rd</h3></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div><h3>STREAM</h3></div>
-                        </td>
-                        <td>
-                            <div><h3>CSE</h3></div>
+                            <div><h3>${outpass.out_time}</h3></div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div><h3>HOSTEL</h3></div>
+                            <div><h3>IN-TIME</h3></div>
                         </td>
                         <td>
-                            <div><h3>F</h3></div>
+                            <div><h3>${outpass.in_time}</h3></div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div><h3>ROOM</h3></div>
+                            <div><h3>REASON</h3></div>
                         </td>
                         <td>
-                            <div><h3>FD-14</h3></div>
+                            <div><h3>${outpass.reason}</h3></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div><h3>OUTPASSES REMAINING</h3></div>
+                        </td>
+                        <td>
+                            <div><h3>${outpass.student.outpasses}</h3></div>
                         </td>
                     </tr>
                 </table>
@@ -145,18 +150,23 @@
             <div class="choice">
                 <table>
                     <tr>
-                        <td>
-                            <div class="button"><a><h3>Accept</h3></a></div>
-                        </td>
-                        <td>
-                            <div class="button"><a><h3>Reject</h3></a></div>
-                        </td>
-                        <td>
-                            <div class="button"><a><h3>Review</h3></a></div>
-                        </td>
+                        <c:choose>
+                            <c:when test="${outpass.status == 'requested'}">
+                                <td>
+                                    <div class="button"><a href="http://localhost:8080/outpass/accept?oid=${outpass.outpass_id}&wid=${warden_id}"><h3>Accept</h3></a></div>
+                                </td>
+                           
+                                <td>
+                                    <div class="button"><a href="http://localhost:8080/outpass/reject?oid=${outpass.outpass_id}&wid=${warden_id}"><h3>Reject</h3></a></div>
+                                </td>
+                                <td>
+                                    <div class="button"><a><h3>Review</h3></a></div>
+                                </td>
+                            </c:when>
+                        </c:choose>
                     </tr>
                 </table>
-        </div>
+            </div>
         </div>
     </body>
 </html>

@@ -1,5 +1,5 @@
 <!--
-<%@ page import="java.util.List"%>
+<%@ page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 -->
 <!DOCTYPE html>
@@ -75,7 +75,7 @@
             </div>
             <div class="num_left">
                 <h2>
-                    ${normalOutpasses.size()} passes to be Reviewed
+                   passes to be Reviewed
                 </h2>
             </div>
         </div>
@@ -161,7 +161,7 @@
                                    <h4 style="text-align:center;color: green;border-radius: 8px;padding:5px;border:2px green solid;margin:0;float:left;">
                                     ${outpass.status}
                                    </h4>
-                                   <a href="/">
+                                   <a href="http://localhost:8080/outpass/view?sid=${outpass.student.id}&oid=${outpass.outpass_id}&wid=${warden.id}">
                                    <img style="margin-left:15px;margin-top: 7px;" src="images\arrow.png" width="15px" height="15px">
                                    </a>
                                 </div>

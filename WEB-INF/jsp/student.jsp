@@ -5,7 +5,7 @@
     <title>
         Student Profile
     </title>
-    <link rel="stylesheet" href="..\css\student.css">
+    <link rel="stylesheet" href="css\student.css">
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Fira+Sans+Condensed">
 </head>
 
@@ -73,13 +73,14 @@
                         </legend>
                         <div style="background-color: #c9cce0;border-radius: 8px;padding: 10px;margin: 10px;">
                             <div style="float:left;">
-                                <img src="../images/papertray.png" height="100px" width="100px">
+                                <img src="images\profile.avif" height="100px" width="100px">
                             </div>
                             <div style="margin-left: 30%;">
                                 <ul style="list-style-type:none;">
-                                    <li>Name: Vignesh SM</li>
-                                    <li>ID: 205001123</li>
-                                    <li>Hostel: D-17 LH-4</li>
+                                    <li>Name: ${student.name}</li>
+                                    <li>ID: ${student.id}</li>
+                                    <li>Hostel: ${student.hostel_no}</li>
+                                    <li>Room: ${student.room_no}</li>
                                 </ul>
                             </div>
                         </div>

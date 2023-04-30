@@ -16,15 +16,20 @@ public class WardenPage extends HttpServlet {
     throws IOException, ServletException
     {
         response.setContentType("text/html");
-        String email = request.getParameter("email");
-        String name = String.valueOf(request.getAttribute("name"));
         
+        HttpSession session = request.getSession(false);
+        User user = (User)session.getAttribute("user");
+
+        String email = user.email;
+        String name =  user.name;
+
         Warden warden = new Warden(name,email);
 
         List<Outpass> normalOutpasses = warden.getOutpasses("all",null);
         List<Outpass> emergencyOutpasses = warden.getOutpasses("emergency",null);
         List<Outpass> reviewOutpasses = warden.getOutpasses(null, "review");
-
+        
+        
         request.setAttribute("email", email);
         request.setAttribute("name", name);
 
@@ -38,9 +43,14 @@ public class WardenPage extends HttpServlet {
         request.setAttribute("reviewOutpasses", reviewOutpasses);
 
         request.setAttribute("warden", warden);     
-
+        
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\warden.jsp");
         view.forward(request, response);   
+        
+    }
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws IOException, ServletException{
+        doPost(request,response);
     }
 }
 

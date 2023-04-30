@@ -12,6 +12,10 @@ public class Warden extends User{
         this.hostel_no = getHostelNo();
     }
 
+    Warden(String email){
+        super(email);
+    }
+
     String getHostelNo(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -23,10 +27,14 @@ public class Warden extends User{
             while(rs.next()){
                 return rs.getString("hostel_no");
             }
-            return "6g";
+           
+            con.close();
+            ps.close();
+
+            return "";
         }
         catch(Exception e){
-            return "66";
+            return "";
         }
     }
 
@@ -34,6 +42,11 @@ public class Warden extends User{
     @Override
     public String getName() {
         return super.getName();
+    }
+
+    @Override
+    public String getId() {
+        return super.getId();
     }
 
     public String getEmail(){
@@ -75,6 +88,8 @@ public class Warden extends User{
                     ps.setString(2,this.hostel_no);
                 }
                 rs = ps.executeQuery();
+
+                
             }
             else{
                 query = "SELECT * FROM outpass where status= ? and student_id in (select id from student where hostel_no = ?)";
@@ -94,16 +109,27 @@ public class Warden extends User{
                         rs.getString(7)
                     );
                     Outpasses.add(outpass);
+                    
                 }
 
                 catch (Exception e){
                     System.out.println(e.toString());
                 }
             }
+            rs.close();
+            con.close();
+            ps.close();
             return Outpasses;
         }
         catch (Exception e){
+            System.out.println(e.toString());
+
             return null;
         }
+    }
+
+    public static void main(String[] args) {
+        Warden warden = new Warden("varsha","warden@ssn.edu.in");
+        System.out.println(warden.getOutpasses("all",null));
     }
 }

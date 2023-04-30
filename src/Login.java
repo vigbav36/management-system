@@ -23,11 +23,23 @@ public class Login extends HttpServlet {
 
             request.setAttribute("name", user.name);
 
+            HttpSession session = request.getSession(true);
+            session.setAttribute("user", user);
+
             if(type.equals("warden")){
                 RequestDispatcher view = request.getRequestDispatcher("/warden");
                 view.forward(request, response);   
             }   
+            else if(type.equals("student")){
+                RequestDispatcher view = request.getRequestDispatcher("/student");
+                view.forward(request, response);   
+            }
         }
+    }
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws IOException, ServletException{
+        doPost(request,response);
     }
 }
 
