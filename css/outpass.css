@@ -15,7 +15,7 @@ body {
    margin: 0 auto;
    background-color: #c7cadd;
    min-height: 100vh;
-   background-image: url("../images/bg.jpg");
+   background-image: url("images/bg.jpg");
    display: grid;
    grid-template-columns: 1fr repeat(5, 1fr);
    grid-template-rows: 1fr;

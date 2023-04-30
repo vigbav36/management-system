@@ -157,7 +157,7 @@
                                 </td>
                            
                                 <td>
-                                    <div class="button"><a><h3>Reject</h3></a></div>
+                                    <div class="button"><a href="http://localhost:8080/outpass/reject?oid=${outpass.outpass_id}&wid=${warden_id}"><h3>Reject</h3></a></div>
                                 </td>
                                 <td>
                                     <div class="button"><a><h3>Review</h3></a></div>
