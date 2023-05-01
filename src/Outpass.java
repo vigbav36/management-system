@@ -21,6 +21,14 @@ public class Outpass {
         this.reason = reason;
         this.status = status;
     }
+    Outpass(String student_id,String in_time,String out_time,String type,String reason,String status){
+        this.student = new Student(student_id);
+        this.in_time = in_time;
+        this.out_time = out_time;
+        this.type = type;
+        this.reason = reason;
+        this.status = status;
+    }
     Outpass(String outpass_id){
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -85,6 +93,10 @@ public class Outpass {
         catch(Exception e){
             this.reason = "EXCEPTION "+ e.toString() ;
         }
+    }
+    public void makeOutpassID()
+    {
+        this.outpass_id="3";
     }
 
 }

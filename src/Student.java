@@ -39,7 +39,6 @@ public class Student extends User{
         }
     }
     
-
     public String getId() {
         return id;
     }
@@ -57,6 +56,25 @@ public class Student extends User{
     }
     public String getBranch() {
         return branch;
+    }
+
+    public void updateOutpassCount(){
+        try{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
+            String query = "UPDATE student SET no_outpasses = ? WHERE id = ?";
+        
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, this.outpasses-1);
+            ps.setString(2,this.id);
+            ps.executeUpdate();
+            
+            con.close();
+            ps.close();
+            
+        }
+        catch(Exception e){
+            e.toString() ;
+        }
     }
 }
 

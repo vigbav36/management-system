@@ -22,6 +22,7 @@ public class StudentPage extends HttpServlet {
         
         Student student = new Student(user.id);
         request.setAttribute("student", student);
+        session.setAttribute("student", student);
 
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\student.jsp");
         view.forward(request, response);   
