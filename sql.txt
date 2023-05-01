@@ -47,3 +47,9 @@ ADD year INT;
 UPDATE student 
 SET branch = 'CSE', year = 3
 WHERE id in (1,2,3);
+
+UPDATE outpass set status = 'requested' where outpass_id in ('0','1','2');
+
+
+ALTER TABLE outpass
+ADD comment VARCHAR(50);

@@ -21,6 +21,8 @@ public class StudentPage extends HttpServlet {
         User user = (User)session.getAttribute("user");
         
         Student student = new Student(user.id);
+        //request.setAttribute("student", student);
+
         request.setAttribute("student", student);
 
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\student.jsp");

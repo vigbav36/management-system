@@ -11,6 +11,7 @@ public class Outpass {
     String reason;
     String status;
     String student_id;
+    String comment;
     
     Outpass(String student_id,String outpass_id,String in_time,String out_time,String type,String reason,String status){
         this.student = new Student(student_id);
@@ -87,6 +88,25 @@ public class Outpass {
         }
     }
 
+    public void updateComment(String comment){
+        try{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
+            String query = "UPDATE outpass SET comment = ? WHERE outpass_id = ?";
+        
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, comment);
+            ps.setString(2,this.outpass_id);
+            ps.executeUpdate();
+            
+            this.comment = comment;
+            con.close();
+            ps.close();
+            
+        }
+        catch(Exception e){
+            this.reason = "EXCEPTION "+ e.toString() ;
+        }
+    }
 }
 
 
