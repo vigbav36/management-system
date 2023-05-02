@@ -27,8 +27,7 @@
         <div>
             <h1 style="color:#454B66;">Dashboard</h1>
         </div>
-        <!--
-        <div class="outpass_section">
+        <div class="outpass_status_section">
             <div class="section_header">
                 <h3>Outpass Status</h3>
             </div>
@@ -60,13 +59,12 @@
                 </div>
             </div>
         </div>
-        -->
-        <div class="outpass_section">
+        <div class="request_outpass_section" >
             <div class="section_header">
                 <h3>Request Outpass</h3>
             </div>
             <div class="passes">
-                <form class="request_form">
+                <form class="request_form" action="http://localhost:8080/outpass/request">
                     <fieldset>
                         <legend>
                             <strong>Outpass 4</strong>
@@ -89,17 +87,17 @@
                     <div class="form_div">
                         <div class="left_form_elt">
                             <label>Out Date: </label>
-                            <input type="date" class="input_field">
+                            <input type="date" class="input_field" name="out_date">
                         </div>
                         <div class="right_form_elt">
                             <label>Out time: </label>
-                            <input type="datetime" class="input_field">
+                            <input type="datetime" class="input_field" >
                         </div>
                     </div>
                     <div class="form_div">
                         <div class="left_form_elt">
                             <label>In Date: </label>
-                            <input type="date" class="input_field">
+                            <input type="date" class="input_field" name="in_date">
                         </div>
                         <div class="right_form_elt">
                             <label>In time: </label>
@@ -108,8 +106,8 @@
                     </div>
                     <div class="form_div">
                         <label>Priority: </label>
-                        <input list="priority" name="priority" id="priority">
-                        <datalist id="priority">
+                        <input type="text" list="priority_list" name="priority" id="priority">
+                        <datalist id="priority_list">
                             <option value="Emergency">
                             <option value="Normal">
                         </datalist>
@@ -117,9 +115,8 @@
                     <div class="form_div">
                         <label>Reason:</label><br>
                         <textarea rows="5" cols="50"
-                            style="height: 80px;box-sizing: border-box;width:100%;resize: none;"></textarea>
+                            style="height: 80px;box-sizing: border-box;width:100%;resize: none;" id="reason" name="reason"></textarea>
 
-                        </textarea>
                     </div>
                     <div class="form_div">
                         <center>

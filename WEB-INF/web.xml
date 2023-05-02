@@ -1,7 +1,7 @@
 <web-app>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>src.Login</servlet-class>
+        <servlet-class>src.Login</servlet-class>    
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -46,6 +46,14 @@
     <servlet-mapping>
         <servlet-name>Review</servlet-name>
         <url-pattern>/review</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Request</servlet-name>
+        <servlet-class>src.Request</servlet-class>
+    </servlet>
+    <servlet-mapping> 
+        <servlet-name>Request</servlet-name>
+        <url-pattern>/request</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>StudentPage</servlet-name>

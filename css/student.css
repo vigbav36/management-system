@@ -105,8 +105,18 @@ body {
     color: var(--light-blue);
 }
 
-.outpass_section {
+.request_outpass_section {
     grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-radius: 8px;
+    background-color: white;
+    color: var(--dark-blue);
+}
+
+.outpass_status_section {
+    grid-row-start: 3;
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 3;
@@ -114,6 +124,7 @@ body {
     background-color: white;
     color: var(--dark-blue);
 }
+
 
 .pending_section {
 

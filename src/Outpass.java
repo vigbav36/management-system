@@ -1,6 +1,6 @@
 package src;
 import java.sql.*;
-
+import java.math.*;
 public class Outpass {
 
     Student student;
@@ -29,6 +29,7 @@ public class Outpass {
         this.type = type;
         this.reason = reason;
         this.status = status;
+        this.outpass_id = String.valueOf((int)Math.floor(Math.random()*9999));
     }
     Outpass(String outpass_id){
         try{
@@ -111,6 +112,32 @@ public class Outpass {
             ps.executeUpdate();
             
             this.comment = comment;
+            con.close();
+            ps.close();
+            
+        }
+        catch(Exception e){
+            this.reason = "EXCEPTION "+ e.toString() ;
+        }
+    }
+    public void addOutpass(){
+        try{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
+            String query = "INSERT INTO outpass VALUES (?,?,?,?,?,?,?,?)";
+        
+            PreparedStatement ps = con.prepareStatement(query);
+
+            ps.setString(1, this.student.id);
+            ps.setString(2,this.outpass_id);
+            ps.setString(3, this.in_time);
+            ps.setString(4, this.out_time);
+            ps.setString(5, this.type);
+            ps.setString(6, this.reason);
+            ps.setString(7,"requested");
+            ps.setString(8,null);
+            ps.executeUpdate();
+            
+    
             con.close();
             ps.close();
             

@@ -7,9 +7,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 import com.mysql.cj.Session;
-
-
-
 /*
  * Servlet to display the warden view 
 */
@@ -21,22 +18,26 @@ public class Request extends HttpServlet {
     {
         response.setContentType("text/html");
 
-        String name = request.getParameter("wid");
-        String id = request.getParameter("oid");
-        String hostel = request.getParameter("wid");
-        String room = request.getParameter("oid");
-        String out_date = request.getParameter("wid");
-        String in_date = request.getParameter("oid");
-        String out_time = request.getParameter("wid");
-        String in_time = request.getParameter("oid");
-        String priority = request.getParameter("wid");
-        String reason = request.getParameter("oid");
+        HttpSession session = request.getSession(false);
+        Student student = (Student)session.getAttribute("student");
+        User user = (User)session.getAttribute("user");
+        
+        String name = student.name;
+        String id = user.id;
+
+        String out_date = request.getParameter("out_date");
+        String in_date = request.getParameter("in_date");
+    
+        String priority = request.getParameter("priority").toLowerCase();
+        String reason = request.getParameter("reason");
         
 
-        Outpass outpass = new Outpass(id,in_time,out_time,priority,reason,"requested");
-        HttpSession session = request.getSession(false);
-        Student dummy_student = (Student)session.getAttribute("student");
-        dummy_student.updateOutpassCount();
+        Outpass outpass = new Outpass(id,in_date,out_date,priority,reason,"requested");
+        outpass.addOutpass();
+        //student.updateOutpassCount();
+
+        PrintWriter out = response.getWriter();
+        out.println(name+" "+id+" "+in_date+" "+out_date+" "+priority+" "+reason);
     }
 }
 
