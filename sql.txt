@@ -51,3 +51,9 @@ WHERE id in (1,2,3);
 
 javac -cp "C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\WEB-INF\lib\jstl-1.2.jar;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\WEB-INF\lib\mysql-connector-j-8.0.32.jar;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\WEB-INF\lib\servlet-api.jar" -d "C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\WEB-INF\classes" --release 8 Login.java User.java Warden.java Outpass.java WardenPage.java Student.java OutpassPage.java Accept.java Reject.java StudentPage.java
 
+
+UPDATE outpass set status = 'requested' where outpass_id in ('0','1','2');
+
+
+ALTER TABLE outpass
+ADD comment VARCHAR(50);

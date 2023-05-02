@@ -157,10 +157,26 @@
                                 </td>
                            
                                 <td>
-                                    <div class="button"><a href="http://localhost:8080/outpass/reject?oid=${outpass.outpass_id}&wid=${warden_id}"><h3>Reject</h3></a></div>
+                                    <div class="button">
+                                        <h3>Reject</h3>
+                                        <form action="http://localhost:8080/outpass/reject">
+                                            <input type="text" placeholder="reason" id="reason" name="reason">
+                                            <input type="hidden" value="${outpass.outpass_id}" name="oid">
+                                            <input type="hidden" value="${warden_id}" name="wid">
+                                            <input type="submit" value="submit">
+                                        </form>
+                                    </div>
                                 </td>
                                 <td>
-                                    <div class="button"><a><h3>Review</h3></a></div>
+                                    <div class="button">
+                                        <a><h3>Review</h3></a>
+                                        <form action="http://localhost:8080/outpass/review">
+                                            <input type="text" placeholder="reason" id="reason" name="reason">
+                                            <input type="hidden" value="${outpass.outpass_id}" name="oid">
+                                            <input type="hidden" value="${warden_id}" name="wid">
+                                            <input type="submit" value="submit">
+                                        </form>
+                                    </div>
                                 </td>
                             </c:when>
                         </c:choose>

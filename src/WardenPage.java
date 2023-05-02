@@ -32,6 +32,7 @@ public class WardenPage extends HttpServlet {
         
         request.setAttribute("email", email);
         request.setAttribute("name", name);
+        
 
         if(normalOutpasses!=null){
             request.setAttribute("normalOutpasses", normalOutpasses);

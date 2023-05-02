@@ -40,6 +40,14 @@
         <url-pattern>/reject</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>Review</servlet-name>
+        <servlet-class>src.Review</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Review</servlet-name>
+        <url-pattern>/review</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>StudentPage</servlet-name>
         <servlet-class>src.StudentPage</servlet-class>
     </servlet>
