@@ -11,7 +11,7 @@ html {
 }
 body {
    margin: 0 auto;
-   background-color: #c7cadd;
+   background-color: #575757;
    min-height: 100vh;
    background-color:rgba((255), 255, 255, 0.98);
    background-repeat: no-repeat;
@@ -54,11 +54,24 @@ body {
    grid-row-start: 3;
    grid-row-end: 4;
    background-color: white;
-
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
 }
+
+.count{
+   padding:10px;
+   display: flex;
+   flex-direction:row;
+   align-items: center;
+   justify-content: center;
+}
+
 .content_pane {
 
    display: grid;
+   
    grid-template-columns: repeat(4,1fr);
    grid-template-rows: 50px 150px repeat(4,200px);
    column-gap: 20px;
@@ -157,7 +170,7 @@ body {
    color: #454B66;
    background-color: white;
    grid-row-start: 3;
-   grid-row-end: 5;
+   grid-row-end: 6;
    grid-column-start: 1;
    grid-column-end: 4;
 }
@@ -215,3 +228,4 @@ table {
 img:hover {
    background-color: rgba(0,0,0,0.2);
 }
+

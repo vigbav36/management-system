@@ -8,6 +8,8 @@
 <head>
     <link rel="stylesheet" href="css\warden.css">
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Fira+Sans+Condensed">
+    <link rel="stylesheet" href="css\custom.css">
+    <link rel="stylesheet" href="css\bootstrap.min.css">
 </head>
 
 <body>
@@ -96,7 +98,7 @@
             <table class="passes">
                 <thead>
                     <tr style="color:#454B66;">
-                        <th>S.No</th>
+                        <th >S.No</th>
                         <th>Name</th>
                         <th>Time</th>
                         <th>Status</th>
@@ -123,53 +125,85 @@
             </table>
         </div>
         <div class="pending_section">
-            <div class="section_header">
-                <div style="width: 50%;float: left;margin-left: 15px;">
-                    <h3>All Out-Passes</h3>
-                </div>
-                <div style="margin-left:75%;text-align: center;">
-                    <h3>
-                        <a href="/" style="color:rgba(255,255,255,0.5);text-decoration: none;">
-                            View All
-                        </a>
-                    </h3>
-                </div>
-            </div>
-            <table class="passes">
-                <thead  style="background-color: #c9c8c8;margin:0px">
-                    <tr style="color:#454B66;background-color: #cecece;margin: 0px;" >
-                        <th style="background-color: #a1a1a1; margin:0px">S.No</th>
-                        <th style="background-color: #a1a1a1; margin:0px">Name</th>
-                        <th style="background-color: #a1a1a1; margin:0px">Time</th>
-                        <th style="background-color: #a1a1a1; margin:0px">Status</th>
-                    </tr>
-                </thead>
-                <tbody >
-                    <c:forEach var="outpass" items="${normalOutpasses}">
-                        <tr>
-                            <td>
-                                ${outpass.outpass_id}
-                            </td>
-                            <td>
-                                ${outpass.student.name}
-                            </td>
-                            <td>
-                                ${outpass.out_time}
-                            </td>
-                            <td>
-                                <div>
-                                   <h4 style="text-align:center;color: green;border-radius: 8px;padding:5px;border:2px green solid;margin:0;float:left;">
-                                    ${outpass.status}
-                                   </h4>
-                                   <a href="http://localhost:8080/outpass/view?sid=${outpass.student.id}&oid=${outpass.outpass_id}&wid=${warden.id}">
-                                   <img style="margin-left:15px;margin-top: 7px;" src="images\arrow.png" width="15px" height="15px">
-                                   </a>
-                                </div>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="table-wrapper">
+                      <div class="table-title">
+                          <div class="row">
+                              <div class="col-sm-6 p-0 d-flex justify-content-lg-start justify-content-center">
+                                  <h2 class="ml-lg-2">ALL OUTPASSES</h2>
+                              </div>  
+                          </div>
+                      </div>
+                      <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Room</th>
+                                <th>Out Date</th>
+                                <th>In Date</th>
+                                <th>Reason</th>
+                                <th>Status</th>
+                                <th>View</th>
+                            </tr>
+                        </thead>
+                      <tbody>
+                        <c:forEach var="outpass" items="${normalOutpasses}">
+                            <tr>
+                                <td>${outpass.outpass_id}</td>
+                                <td>${outpass.student.name}</td>
+                                <td>${outpass.student.room_no}</td>
+                                <td>${outpass.out_time}</td>
+                                <td>${outpass.in_time}</td>
+                                <td>${outpass.reason}</td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${outpass.status == 'requested'}">
+                                            <div>
+                                                <h4 style="text-align:center; border-radius: 8px; padding:3px; border:2px solid rgb(33, 11, 113);font-size: 14px; background-color: rgb(117, 175, 233);">
+                                                    ${outpass.status}
+                                                </h4>
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${outpass.status == 'approved'}">
+                                            <div>
+                                                <h4 style="text-align:center; border-radius: 8px; padding:3px; border:2px solid rgb(22, 67, 10);font-size: 14px; background-color: rgb(186, 239, 173);">
+                                                    ${outpass.status}
+                                                </h4>
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${outpass.status == 'under review'}">
+                                            <div>
+                                                <h4 style="text-align:center; border-radius: 8px; padding:3px; border:2px solid rgb(238, 185, 12);font-size: 14px;">
+                                                    ${outpass.status}
+                                                </h4>
+                                            </div>
+                                        </c:when>
+                                        <c:when test="${outpass.status == 'rejected'}">
+                                            <div>
+                                                <h4 style="text-align:center; border-radius: 8px; padding:3px; border:2px solid rgb(72, 2, 2);font-size: 14px; background-color: rgb(247, 105, 103);">
+                                                    ${outpass.status}
+                                                </h4>
+                                            </div>
+                                        </c:when>
+                                    </c:choose>
+                                </td>
+                                <td>
+                                    <a href="http://localhost:8080/outpass/view?sid=${outpass.student.id}&oid=${outpass.outpass_id}&wid=${warden.id}">
+                                        <img style="margin-left:15px;margin-top: 7px;" src="images\arrow.png" width="15px" height="15px">
+                                    </a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                      </tbody>
+                      </table>
+                      </div>
+                  </div>
+              </div>
             </table>
+
+            
         </div>
         <div class="review_section">
             <div class="section_header">
@@ -190,7 +224,6 @@
                         <th>S.No</th>
                         <th>Name</th>
                         <th>Time</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -211,9 +244,35 @@
             </table>
         </div>
         <div class="count_section">
-            <div class="" id="data">number</div>
-            <div class="" id="data">count</div>
-            <div class="" id="data">varsha</div>
+            <table style="background-color: white;">
+                <tr>
+                    <td > 
+                        <img src="images\outpass.jpg" width="30px" height="30px">
+                    </td>
+                    <td>
+                        <div style="padding-left:10px;"><span style="color:  rgba(69, 75, 102);font-weight: bolder;">32</span></div>
+                        <div style="padding-left:10px;">Outpasses</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="images\emergency.jpg" width="30px" height="30px">
+                    </td>
+                    <td>
+                        <div style="padding-left:10px;"><span style="color:  rgba(69, 75, 102);font-weight: bolder;">32</span></div>
+                        <div style="padding-left:10px;">Emrgency Outpasses</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="images\review.jpg" width="30px" height="30px">
+                    </td>
+                    <td>
+                        <div style="padding-left:10px;"><span style="color:  rgba(69, 75, 102);font-weight: bolder;">32</span></div>
+                        <div style="padding-left:10px;">For Review</div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
