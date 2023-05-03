@@ -161,14 +161,14 @@
                                     <c:choose>
                                         <c:when test="${outpass.status == 'requested'}">
                                             <div>
-                                                <h4 style="text-align:center; border-radius: 8px; padding:3px; border:2px solid yellow;font-size: 14px;">
+                                                <h4 style="text-align:center; border-radius: 8px; padding:3px; border:2px solid rgb(33, 11, 113);font-size: 14px; background-color: rgb(117, 175, 233);">
                                                     ${outpass.status}
                                                 </h4>
                                             </div>
                                         </c:when>
                                         <c:when test="${outpass.status == 'approved'}">
                                             <div>
-                                                <h4 style="text-align:center; border-radius: 8px; padding:3px; border:2px solid rgb(48, 208, 4);font-size: 14px;">
+                                                <h4 style="text-align:center; border-radius: 8px; padding:3px; border:2px solid rgb(22, 67, 10);font-size: 14px; background-color: rgb(186, 239, 173);">
                                                     ${outpass.status}
                                                 </h4>
                                             </div>
@@ -182,7 +182,7 @@
                                         </c:when>
                                         <c:when test="${outpass.status == 'rejected'}">
                                             <div>
-                                                <h4 style="text-align:center; border-radius: 8px; padding:3px; border:2px solid rgb(193, 9, 9);font-size: 14px;">
+                                                <h4 style="text-align:center; border-radius: 8px; padding:3px; border:2px solid rgb(72, 2, 2);font-size: 14px; background-color: rgb(247, 105, 103);">
                                                     ${outpass.status}
                                                 </h4>
                                             </div>
