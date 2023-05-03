@@ -87,7 +87,7 @@ public class Outpass {
             ps.setString(2,this.outpass_id);
             ps.executeUpdate();
             this.status = status;
-            
+                
             con.close();
             ps.close();
             
@@ -121,6 +121,7 @@ public class Outpass {
         }
     }
     public void addOutpass(){
+
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
             String query = "INSERT INTO outpass VALUES (?,?,?,?,?,?,?,?)";
@@ -136,7 +137,7 @@ public class Outpass {
             ps.setString(7,"requested");
             ps.setString(8,null);
             ps.executeUpdate();
-            
+        
     
             con.close();
             ps.close();

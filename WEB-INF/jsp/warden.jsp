@@ -136,15 +136,15 @@
                 </div>
             </div>
             <table class="passes">
-                <thead>
-                    <tr style="color:#454B66;">
-                        <th>S.No</th>
-                        <th>Name</th>
-                        <th>Time</th>
-                        <th>Status</th>
+                <thead  style="background-color: #c9c8c8;margin:0px">
+                    <tr style="color:#454B66;background-color: #cecece;margin: 0px;" >
+                        <th style="background-color: #a1a1a1; margin:0px">S.No</th>
+                        <th style="background-color: #a1a1a1; margin:0px">Name</th>
+                        <th style="background-color: #a1a1a1; margin:0px">Time</th>
+                        <th style="background-color: #a1a1a1; margin:0px">Status</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     <c:forEach var="outpass" items="${normalOutpasses}">
                         <tr>
                             <td>
@@ -209,6 +209,11 @@
                     </c:forEach>
                 </tbody>
             </table>
+        </div>
+        <div class="count_section">
+            <div class="" id="data">number</div>
+            <div class="" id="data">count</div>
+            <div class="" id="data">varshaSexy</div>
         </div>
     </div>
 </body>

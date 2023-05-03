@@ -13,9 +13,9 @@ body {
    margin: 0 auto;
    background-color: #c7cadd;
    min-height: 100vh;
-   background-image: url("../images/bg.jpg");
+   background-color:rgba((255), 255, 255, 0.98);
    background-repeat: no-repeat;
-background-size: cover;
+   background-size: cover;
    display: grid;
    grid-template-columns: 1fr repeat(5, 1fr);
    grid-template-rows: 1fr;
@@ -26,7 +26,7 @@ background-size: cover;
 
 .nav_bar {
    padding: 5px;
-   background-color: rgba(69, 75, 102,0.6);
+   background-color: rgba(69, 75, 102);
    /*background-image: url("mngs.png");*/
    color: white;
    grid-column-start: 1;
@@ -48,13 +48,21 @@ background-size: cover;
    color: white;
 }
 
+.count_section{
+   grid-column-start: 4;
+   grid-column-end: 5;
+   grid-row-start: 3;
+   grid-row-end: 4;
+   background-color: white;
+
+}
 .content_pane {
 
    display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   grid-template-rows: 50px 220px 1fr 1.5fr;
+   grid-template-columns: repeat(4,1fr);
+   grid-template-rows: 50px 150px repeat(4,200px);
    column-gap: 20px;
-   row-gap: 20px;
+   row-gap: 30px;
    margin: 20px;
    grid-column-start: 2;
    grid-column-end: 7;
@@ -85,8 +93,8 @@ background-size: cover;
    box-sizing: border-box;
    box-shadow: 0 5px 50px rgba(#000, 0.5);
    border-radius: 8px;
-   grid-row-start: 1;
-   grid-row-end: 2;
+   grid-row-start: 2;
+   grid-row-end: 3;
    grid-column-start: 1;
    grid-column-end: 2;
 
@@ -132,22 +140,23 @@ background-size: cover;
 
 .review_section {
 
-   border-radius: 8px;
+   border-radius: 0px;
    color: #454B66;
    background-color: white;
    grid-row-start: 3;
    grid-row-end: 4;
    grid-column-start: 2;
    grid-column-end: 4;
+   display:none;
 }
 
 
 .pending_section {
 
-   border-radius: 8px;
+   border-radius: 5px;
    color: #454B66;
    background-color: white;
-   grid-row-start: 4;
+   grid-row-start: 3;
    grid-row-end: 5;
    grid-column-start: 1;
    grid-column-end: 4;
@@ -155,13 +164,14 @@ background-size: cover;
 
 .emergency_section {
 
-   border-radius: 8px;
+   border-radius: 0px;
    color: #454B66;
    background-color: white;
    grid-row-start: 2;
    grid-row-end: 3;
    grid-column-start: 2;
    grid-column-end: 4;
+   display: none;
 }
 
 .section_header {
@@ -173,9 +183,8 @@ background-size: cover;
 .passes {
 
    color:var(--light-blue);
-   border-radius:8px;
+   border-radius:0px;
    text-align: left;
-   border-spacing: 25px 5px;
    table-layout: fixed;
    width:95%;
    margin-left: 20px;
@@ -188,6 +197,7 @@ table {
 }
 td {
    padding: 5px;
+   margin: 0px;
 }
 
 th {

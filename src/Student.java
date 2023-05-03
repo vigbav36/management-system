@@ -1,5 +1,6 @@
 package src;
 import java.sql.*;
+import java.util.*;
 
 public class Student extends User{
 
@@ -75,6 +76,11 @@ public class Student extends User{
         catch(Exception e){
             e.toString() ;
         }
+    }
+
+    public List<Outpass> getOutpassDets(){
+        List<Outpass> result = new ArrayList<Outpass>();
+        return result;
     }
 }
 

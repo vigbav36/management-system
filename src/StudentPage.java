@@ -29,6 +29,7 @@ public class StudentPage extends HttpServlet {
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\student.jsp");
         view.forward(request, response);   
         
+        
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException{
