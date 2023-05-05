@@ -27,7 +27,7 @@ public class WardenPage extends HttpServlet {
 
         List<Outpass> normalOutpasses = warden.getOutpasses("all",null);
         List<Outpass> emergencyOutpasses = warden.getOutpasses("emergency",null);
-        List<Outpass> reviewOutpasses = warden.getOutpasses(null, "review");
+        List<Outpass> reviewOutpasses = warden.getOutpasses(null, "under review");
         
         
         request.setAttribute("email", email);

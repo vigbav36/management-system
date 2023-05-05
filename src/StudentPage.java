@@ -21,10 +21,17 @@ public class StudentPage extends HttpServlet {
         User user = (User)session.getAttribute("user");
         
         Student student = new Student(user.id);
-        //request.setAttribute("student", student);
-
+        
         request.setAttribute("student", student);
         session.setAttribute("student", student);
+        request.setAttribute("requested", false);
+
+        Outpass outpass = student.getExistingOutpass();
+
+        if(outpass != null){
+            request.setAttribute("existing", true);
+            request.setAttribute("existing_outpass",outpass);
+        }
 
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\student.jsp");
         view.forward(request, response);   

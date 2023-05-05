@@ -213,7 +213,7 @@
                     </td>
                     <td>
                         <div style="padding-left:10px;"><span
-                                style="color:  rgba(69, 75, 102);font-weight: bolder;">32</span></div>
+                                style="color:  rgba(69, 75, 102);font-weight: bolder;">${normalOutpasses.size()}</span></div>
                         <div style="padding-left:10px;">Outpasses</div>
                     </td>
                 </tr>
@@ -223,7 +223,7 @@
                     </td>
                     <td>
                         <div style="padding-left:10px;"><span
-                                style="color:  rgba(69, 75, 102);font-weight: bolder;">32</span></div>
+                                style="color:  rgba(69, 75, 102);font-weight: bolder;">${emergencyOutpasses.size()}</span></div>
                         <div style="padding-left:10px;">Emrgency Outpasses</div>
                     </td>
                 </tr>
@@ -233,7 +233,7 @@
                     </td>
                     <td>
                         <div style="padding-left:10px;"><span
-                                style="color:  rgba(69, 75, 102);font-weight: bolder;">32</span></div>
+                                style="color:  rgba(69, 75, 102);font-weight: bolder;">${reviewOutpasses.size()}</span></div>
                         <div style="padding-left:10px;">For Review</div>
                     </td>
                 </tr>

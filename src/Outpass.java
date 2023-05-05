@@ -13,7 +13,7 @@ public class Outpass {
     String student_id;
     String comment;
     
-    Outpass(String student_id,String outpass_id,String in_time,String out_time,String type,String reason,String status){
+    Outpass(String student_id,String outpass_id,String in_time,String out_time,String type,String reason,String status,String comment){
         this.student = new Student(student_id);
         this.outpass_id = outpass_id;
         this.in_time = in_time;
@@ -21,6 +21,7 @@ public class Outpass {
         this.type = type;
         this.reason = reason;
         this.status = status;
+        this.comment =  comment;
     }
     Outpass(String student_id,String in_time,String out_time,String type,String reason,String status){
         this.student = new Student(student_id);
@@ -30,6 +31,7 @@ public class Outpass {
         this.reason = reason;
         this.status = status;
         this.outpass_id = String.valueOf((int)Math.floor(Math.random()*9999));
+        this.comment="";
     }
     Outpass(String outpass_id){
         try{
@@ -47,6 +49,7 @@ public class Outpass {
                 this.type = rs.getString(5);
                 this.reason = rs.getString(6);
                 this.status = rs.getString(7);
+                this.comment = rs.getString(8);
             }
             con.close();
             ps.close();
@@ -55,6 +58,13 @@ public class Outpass {
             this.reason = "EXCEPTION "+ e.toString() ;
         }
     }
+ 
+    @Override
+    public String toString() {
+      
+        return "Outpass comment is "+this.comment;
+    }
+
     public String getIn_time() {
         return in_time;
     }
@@ -76,7 +86,9 @@ public class Outpass {
     public String getType() {
         return type;
     }
-
+    public String getComment() {
+        return comment;
+    }
     public void updateStatus(String status){
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");

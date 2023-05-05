@@ -95,6 +95,7 @@ public class Warden extends User{
                 query = "SELECT * FROM outpass where status= ? and student_id in (select id from student where hostel_no = ?)";
                 ps = con.prepareStatement(query);
                 ps.setString(1,status);
+                ps.setString(2,this.hostel_no);
                 rs = ps.executeQuery();
             }
             while(rs.next()){
@@ -106,7 +107,8 @@ public class Warden extends User{
                         rs.getString(4),
                         rs.getString(5),
                         rs.getString(6),
-                        rs.getString(7)
+                        rs.getString(7),
+                        rs.getString(8)
                     );
                     Outpasses.add(outpass);
                     
@@ -130,6 +132,6 @@ public class Warden extends User{
 
     public static void main(String[] args) {
         Warden warden = new Warden("varsha","warden@ssn.edu.in");
-        System.out.println(warden.getOutpasses("all",null));
+        System.out.println(warden.getOutpasses(null, "under review"));
     }
 }

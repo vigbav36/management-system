@@ -22,7 +22,7 @@
     <servlet-mapping>
         <servlet-name>OutpassPage</servlet-name> 
         <url-pattern>/view</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping> 
     <servlet>
         <servlet-name>Accept</servlet-name>
         <servlet-class>src.Accept</servlet-class>
@@ -43,7 +43,7 @@
         <servlet-name>Review</servlet-name>
         <servlet-class>src.Review</servlet-class>
     </servlet>
-    <servlet-mapping>
+    <servlet-mapping> 
         <servlet-name>Review</servlet-name>
         <url-pattern>/review</url-pattern>
     </servlet-mapping>

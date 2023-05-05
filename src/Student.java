@@ -77,12 +77,50 @@ public class Student extends User{
             e.toString() ;
         }
     }
+    public Outpass getExistingOutpass(){
+        try{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
+            String query = "SELECT * from OUTPASS where student_id = ? and status NOT IN (\"authenticated\", \"rejected\")";
+        
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, this.id);
+            ResultSet rs = ps.executeQuery();
+            
+            Outpass outpass  = null;
 
+            while(rs.next()){
+                outpass = new Outpass(
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5),
+                    rs.getString(6),
+                    rs.getString(7),
+                    rs.getString(8)
+                );
+            }
+            con.close();
+            ps.close();
+            return outpass;
+        }
+        catch(Exception e){
+            e.toString() ;
+            return null;
+        }
+        
+    }
     public List<Outpass> getOutpassDets(){
         List<Outpass> result = new ArrayList<Outpass>();
         return result;
     }
+
+    public static void main(String[] args) {
+        Student student = new Student("1");
+        System.out.println(student.getExistingOutpass().comment);
+    }
 }
 
 
-// SELECT * FROM student, user where user.id=student.id and student.id = 1
+//SELECT * FROM student, user where user.id=student.id and student.id = 1
+//SELECT * from OUTPASS where student_id = 1 and status NOT IN ("authenticated", "rejected");
