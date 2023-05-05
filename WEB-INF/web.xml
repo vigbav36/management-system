@@ -63,4 +63,12 @@
         <servlet-name>StudentPage</servlet-name>
         <url-pattern>/student</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AuthenticatorPage</servlet-name>
+        <servlet-class>src.AuthenticatorPage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthenticatorPage</servlet-name>
+        <url-pattern>/authenticator</url-pattern>
+    </servlet-mapping>
 </web-app>
