@@ -23,7 +23,6 @@ and open the template in the editor.
             <img src="images\papertray.png" height="200px" width="200px">
         </div>
         <div class="login-box">
-            <h3 style="color:white;">LOGIN</h3>
             <form class="login-form" action="http://localhost:8080/outpass/login" method="get">
                 <input type="text" id="email" name="email" placeholder="Email">
                 <input type="password" id="password" name="password" placeholder="Password">
