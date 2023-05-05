@@ -66,7 +66,7 @@
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 1;
-    grid-column-end: 5;
+    grid-column-end: 4;
  
     display: grid;
     grid-template-columns: 200px 200px 1fr;
@@ -85,11 +85,10 @@
     background-color: white;
     box-shadow: 2px 2px 4px gray;
  
-    text-align: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding:15px;
  }
  
@@ -111,6 +110,22 @@
     padding:15px;
 }
 
+.view_routes {
+    background-color: white;
+    color: var(--dark-blue);
+    box-shadow: 2px 2px 4px gray;
+
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding:15px;
+}
 /* main body */
 
 .request_outpass_section {
@@ -127,20 +142,21 @@
     overflow: scroll;
 }
 
-.request_form {
-
-    margin: 20px;
-    display: flex;
-    background-color: #eff1f9;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 20px;
-
-}
-
 .outpass_status_section {
     
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+    background-color: white;
+    color: var(--dark-blue);
+    box-shadow: 2px 2px 4px gray;
+
+    overflow: hidden;
+}
+
+.outpass_history {
     grid-row-start: 2;
     grid-row-end: 5;
     grid-column-start: 4;
@@ -153,19 +169,22 @@
     overflow: hidden;
 }
 
+.request_form {
 
-.section_item {
-    background-color: var(--light-blue);
-    padding: 10px;
-    color: white;
-    margin: 5px;
-    border-radius: 8px;
-    text-align: center;
+    margin: 20px;
+    display: flex;
+    background-color: #eff1f9;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+
 }
 
-input {
-    width: 80%;
+fieldset {
+    width: 100%;
 }
+
 button {
     background-color: var(--purple);
     height: 30px;
@@ -175,20 +194,11 @@ button {
     color: white;
 }
 
-fieldset {
-    width: 95%;
-    border-radius: 8px;
-}
-
 button:hover {
     background-color: var(--dark-blue);
     color: var(--light-blue);
     border: 1px var(--purple) solid;
     box-shadow: 2px 2px 2px var(--purple);
-}
-
-li {
-    margin-top: 10px;
 }
 
 .form_div{
@@ -204,26 +214,3 @@ li {
     margin-left: 50%;
 }
 
-
-.status {
-    background-color: rgb(83, 138, 83);
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 15px;
-    text-align: center;
-}
-
-.outpass {
-    background-color: rgb(230, 232, 244);
-    margin: 15px;
-    border-radius: 8px;
-    padding: 10px;
-}
-.card {
-    text-align: center;
- }
- .passes {
-   
-
- }

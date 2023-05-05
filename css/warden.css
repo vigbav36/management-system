@@ -106,12 +106,30 @@ body {
    grid-column-end: 5;
 
    display: grid;
-   grid-template-columns: 200px repeat(2, 1fr);
+   grid-template-columns: 1fr 200px 200px;
    grid-template-rows: 150px;
    column-gap: 40px;
 }
 
 .date_display{
+
+   grid-row-start: 1;
+   grid-row-end: 2;
+   grid-column-start: 2;
+   grid-column-end: 3;
+
+   color: var(--dark-blue);
+   background-color: white;
+   box-shadow: 2px 2px 4px gray;
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding:15px;
+}
+
+.emergency_passes{
 
    grid-row-start: 1;
    grid-row-end: 2;
@@ -123,23 +141,23 @@ body {
    box-shadow: 2px 2px 4px gray;
 
    text-align: center;
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: space-between;
-   padding:15px;
+
 }
 
-.emergency_passes{
+.history_passes{
 
    grid-row-start: 1;
    grid-row-end: 2;
-   grid-column-start: 2;
-   grid-column-end: 3;
+   grid-column-start: 3;
+   grid-column-end: 4;
 
    color: var(--dark-blue);
    background-color: white;
    box-shadow: 2px 2px 4px gray;
-   overflow-y: scroll;
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
 
 }
