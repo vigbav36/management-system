@@ -23,7 +23,6 @@ public class User {
 
     User(){
         this.name="";
-        init();
     }
     public String getName() {
         return name;

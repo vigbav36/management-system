@@ -1,16 +1,8 @@
 package src;
-
 import java.io.*;
-
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-
-
-/*
- * Servlet to display the warden view 
-*/
 
 public class Reject extends HttpServlet {
 
