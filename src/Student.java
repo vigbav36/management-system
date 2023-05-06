@@ -115,6 +115,41 @@ public class Student extends User{
         return result;
     }
 
+    public List<Outpass> getAllOutpasses(){
+        List<Outpass> result = new ArrayList<Outpass>();
+        try{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
+            String query = "SELECT * from OUTPASS where student_id = ? and status IN (\"authenticated\")";
+        
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, this.id);
+            ResultSet rs = ps.executeQuery();
+            
+            Outpass outpass  = null;
+
+            while(rs.next()){
+                outpass = new Outpass(
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5),
+                    rs.getString(6),
+                    rs.getString(7),
+                    rs.getString(8)
+                );
+                result.add(outpass);
+            }
+            con.close();
+            ps.close();
+            return result;
+        }
+        catch(Exception e){
+            e.toString() ;
+            return null;
+        }
+    }
+
     public static void main(String[] args) {
         Student student = new Student("1");
         System.out.println(student.getExistingOutpass().comment);

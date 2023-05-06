@@ -176,8 +176,6 @@
     background-color: white;
     color: var(--dark-blue);
     box-shadow: 2px 2px 4px gray;
-
-    overflow: scroll;
 }
 
 .outpass_status_section {
@@ -210,45 +208,27 @@
 .request_form {
 
     margin: 20px;
-    display: flex;
+    display:grid;
+    grid-template-columns: max-content max-content;
+    grid-gap:5px;
+
     background-color: #eff1f9;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
     padding: 20px;
-
 }
 
-fieldset {
-    width: 100%;
-}
+.request_form label       { text-align:right; }
+.request_form label:after { content: ":"; }
 
-button {
-    background-color: var(--purple);
-    height: 30px;
-    border: none;
+#button {
+    background-color: var(--dark-blue);
     border-radius: 8px;
     padding: 5px;
     color: white;
+    border:none;
 }
 
-button:hover {
-    background-color: var(--dark-blue);
+#button:hover {
+    background-color: #4d525e;
     color: var(--light-blue);
-    border: 1px var(--purple) solid;
-    box-shadow: 2px 2px 2px var(--purple);
+    box-shadow: 2px 2px 2px gray;
 }
-
-.form_div{
-    margin-top:20px;
-    margin-left: 10px;
-    width: 95%;
-}
-.left_form_elt {
-    margin: 0;
-    float: left;
-}
-.right_form_elt {
-    margin-left: 50%;
-}
-
