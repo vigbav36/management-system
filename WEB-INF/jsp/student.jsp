@@ -24,9 +24,8 @@
         div2.innerHTML = mm+','+yyyy;
         
     }
-    
-
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 
 <body onload="displayDate()" style="background-color:rgb(235 237 242);">
@@ -183,6 +182,11 @@
                     <div>
                         Comments - ${existing_outpass.comment}
                     </div>
+                </div>
+                <div id="qrcode">
+                    <script>
+                        var qrcode = new QRCode("qrcode","http://localhost:8080/outpass/authenticate?oid=${outpass.outpass_id}&sid=${student.id}");
+                    </script>
                 </div>
             </div>
         </c:otherwise>
