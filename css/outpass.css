@@ -2,65 +2,111 @@
    --dark-brown: #191308;
    --light-brown: #322A26;
    --purple: #9CA3DB;
-   --dark-blue: #454B66;
+   --dark-blue: #353b48;
    --light-blue: #677DB7;
-   --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 html {
    content-visibility: auto;
    contain-intrinsic-size: 1px 5000px;
-   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 body {
    margin: 0 auto;
-   background-color: #c7cadd;
    min-height: 100vh;
-   background-image: url("images/bg.jpg");
+   background-color: rgb(244, 240, 240);
+   font-family: "Fira+Sans+Condensed", sans-serif;
+
    display: grid;
    grid-template-columns: 1fr repeat(5, 1fr);
    grid-template-rows: 1fr;
    column-gap: 20px;
-   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
 }
 
+/* Nav bar to the left */
 .nav_bar {
+
    padding: 5px;
-   background-color: rgba(69, 75, 102);   
-   /*background-image: url("mngs.png");*/
+   background-color: var(--dark-blue);
    color: white;
+
    grid-column-start: 1;
    grid-column-end: 2;
    grid-row-start: 1;
    grid-row-end: 2;
+
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: flex-start;
 
+   width: 100%;
 }
 
-.nav_bar a {
+.menu_components {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+}
 
-   position: relative;
-   float: left;
+#dashboard {
+   margin-top: 40px;
+   font-size: 16px;
+   font-weight: 400;
+   padding: 10px;
+   border-radius: 8px;
    text-decoration: none;
    color: white;
+   width: 90%;
+}
+
+#dashboard:hover {
+   background-color: #4d525e;
+   text-decoration: none;
+   color: white;
+}
+
+.profile {
+
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: flex-start;
+   align-self: flex-start;
+   padding: 10px;
+   border-radius: 8px;
+
 }
 
 .content_pane {
 
    display: grid;
-   grid-template-columns: 1fr 1fr;
-   grid-template-rows: 50px 1fr 70px 150px;
-   column-gap: 20px;
+   grid-template-columns: 1fr 250px;
+   grid-template-rows: 1fr 1fr;
+   column-gap: 40px;
    row-gap: 20px;
    margin: 20px;
    grid-column-start: 2;
    grid-column-end: 7;
    grid-row-start: 1;
    grid-row-end: 2;
+}
+
+.outpass {
+   grid-column-start: 1;
+   grid-column-end: 2;
+   grid-row-start: 1;
+   grid-row-end: 3;
+
+   color: var(--dark-blue);
+   background-color: white;
+   box-shadow: 2px 2px 4px gray;
+
 }
 
 .outpass_details {
@@ -70,12 +116,15 @@ body {
    grid-row-end: 3;
    border-radius: 8px;
    background-color: white;
+   margin-left: 12px;
 }
 
 .student_details {
 
-   border-radius: 2px;
-   background-color: white;
+   border-radius: 8px;
+   border:0.05px solid #a8acb5;
+   background-color: #a8acb5;
+   margin: 20px;
    grid-column-start: 1;
    grid-column-end: 2;
    grid-row-start: 2;
@@ -83,18 +132,19 @@ body {
 }
 
 .choice {
-   
-   border-radius: 8px;
-   background-color: white;
-   grid-column-start: 1;
+   background-color: rgb(244, 240, 240);
+   grid-column-start: 2;
    grid-column-end: 3;
-   grid-row-start: 3;
-   grid-row-end: 4;
+   grid-row-start: 1;
+   grid-row-end: 2;
    display: flex;
+   flex-direction: column;
    align-items: center;
-   justify-content: space-around;
+   justify-content: space-between;
+   padding: 10px;
 }
-.comment_form{
+
+.comment_form {
    grid-column-start: 1;
    grid-column-end: 3;
    grid-row-start: 4;
@@ -106,26 +156,23 @@ body {
    padding-top: 10px;
    padding-bottom: 10px;
 }
-.section_header {
-   background-color: white;
-   padding: 10px;
-   color: white;
-}
+
 .button {
 
    text-align: center;
-   background-color: var(--light-blue);
+   color: var(--dark-blue);
+   background-color: white;
+   box-shadow: 2px 2px 4px gray;
    color: #000000;
-   border-radius: 0rem;
    padding: 20px;
    padding-top: 10px;
    padding-bottom: 10px;
-}
+   width: 70%;
 }
 
 
 table {
-   background-color: white;
+   background-color: rgb(244, 240, 240);
    margin: 15px;
    font-size: 15px;
    border-radius: 8px;
@@ -133,8 +180,8 @@ table {
 }
 
 td {
-   padding-right:2rem;
-   padding-left:2rem;
+   padding-right: 2rem;
+   padding-left: 2rem;
    width: 50%;
 }
 
@@ -146,7 +193,7 @@ th {
    display: none;
    background-color: #eff1f9;
    border-radius: 3px;
-   padding: 10px; 
+   padding: 10px;
 }
 
 a {
@@ -154,50 +201,34 @@ a {
    color: #000000;
 }
 
-.button:hover{
+.button:hover {
    cursor: pointer;
-   padding: 25px;
-   padding-top: 15px;
-   padding-bottom: 15px;
+   background-color: #a8acb5;
+   color:white;
 }
-h3{
+
+h3 {
    font-weight: normal;
    font-size: 14px;
 }
 
-#reject_button{
-   background-color: rgb(228, 11, 11);
-   border:0.5px solid rgb(72, 2, 2);
-   box-shadow: 0.5px 0.5px rgb(228, 11, 11);
-}
-#accept_button{
-   border:0.5px solid rgb(22, 67, 10);
-   background-color: rgb(41, 181, 6);
-   color: #000000;
-}
-
-#review_button{
-   background-color: rgb(247, 255, 3);
-   border:0.5px solid rgb(11, 11, 11);
-}
-
-textarea{
+textarea {
    resize: none;
    border-radius: 5px;
    padding: 5px;
 }
 
-input[type=submit]{
-  background-color:  var(--light-blue);
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
+input[type=submit] {
+   background-color: var(--light-blue);
+   border: none;
+   color: white;
+   padding: 16px 32px;
+   text-decoration: none;
+   margin: 4px 2px;
+   cursor: pointer;
 }
 
-input[type=submit]:hover{
+input[type=submit]:hover {
    margin-top: 10px;
    cursor: pointer;
    padding: 25px;

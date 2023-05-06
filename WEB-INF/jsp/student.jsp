@@ -29,18 +29,31 @@
     </script>
 </head>
 
-<body onload="displayDate()">
+<body onload="displayDate()" style="background-color:rgb(235 237 242);">
     <div class="nav_bar">
-        <div style="margin-left:15px;margin-top:15px;">
-            <p style="font-size: 15px;margin-bottom: 0;padding-bottom: 0;">Welcome</p>
-            <p style="font-size: 25px;margin-top: 0;padding-top: 0;">${name}</p>
-        </div>
-        <div style="margin-left:15px">
-            <a href="/" style="font-size:10px;color: gainsboro">
-                <p>
-                    Sign Out
-                </p>
+       
+        <div class="menu_components">
+            <div class="profile" style="background-color:  #353b48;justify-content: flex-start;">
+                <img src="images\papertray.png" height="40px" width="40px">
+                <h3>OMS</h3>
+            </div>
+            <a id="dashboard" href="/" style="background-color: #4d525e;"  onclick="loadDoc('dashboard')">
+                Dashboard
             </a>
+            <a id="history" href="#" onclick="loadDoc2('history')">
+                History
+            </a>
+        </div>
+        <div class="profile">
+            <!--<img src="images/woman.jpg" height="40px" width="40px">-->
+            <p style="font-size: 25px;font-weight: 400;">
+                ${name}
+            <p>
+            <div style="margin-left:15px">
+                <a href="/" style="font-size:10px;color: gainsboro">
+                    <img src="images\exit.png" height="25px" width="25px">
+                </a>
+            </div>
         </div>
     </div>
     <div class="content_pane">
@@ -71,8 +84,8 @@
         <div class="request_outpass_section">
             <c:choose>
                 <c:when test="${!existing}">
-                    <div style="background-color: rgb(69, 75, 102);">
-                        <h2 class="ml-lg-2" style="color:white">Request Outpass ${existing}</h2>
+                    <div style="background-color:  #353b48;">
+                        <h3 class="ml-lg-2" style="color:white;padding:3px;">Request Outpass ${existing}</h3>
                     </div>
                     <form class="request_form" action="http://localhost:8080/outpass/request">
                         <fieldset>
@@ -138,7 +151,7 @@
         </c:when>
         <c:otherwise>
             <div class="outpass_status_section">
-                <div style="background-color: rgb(69, 75, 102);">
+                <div style="background-color:  #353b48;">
                     <h2 class="ml-lg-2" style="color:white">Outpass Status?</h2>
                 </div>
                 <div class="passes">
