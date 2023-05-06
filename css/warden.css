@@ -50,7 +50,7 @@ body {
 
    display: grid;
    grid-template-columns: repeat(4, 1fr);
-   grid-template-rows: 50px 150px repeat(2, 200px);
+   grid-template-rows: 50px 150px repeat(6, 200px);
    column-gap: 20px;
    row-gap: 30px;
    margin: 20px;
@@ -60,6 +60,17 @@ body {
    grid-row-start: 1;
    grid-row-end: 2;
 
+}
+
+.pending_passes{
+   color: var(--dark-blue);
+   background-color: white;
+   box-shadow: 2px 2px 4px gray;
+
+   grid-row-start: 7;
+   grid-row-end: 9;
+   grid-column-start: 1;
+   grid-column-end: 4;
 }
 
 /* displays pending outpasses */
@@ -79,6 +90,7 @@ body {
    justify-content: center;
 }
 
+
 .count {
    padding: 10px;
    display: flex;
@@ -87,14 +99,14 @@ body {
    justify-content: center;
 }
 
-/* all passes */
-.all_passes {
+/* review passes */
+.review_passes {
    color: var(--dark-blue);
    background-color: white;
    box-shadow: 2px 2px 4px gray;
 
-   grid-row-start: 3;
-   grid-row-end: 5;
+   grid-row-start: 5;
+   grid-row-end: 7;
    grid-column-start: 1;
    grid-column-end: 4;
 }
@@ -106,7 +118,7 @@ body {
    grid-column-end: 5;
 
    display: grid;
-   grid-template-columns: 1fr 200px 200px;
+   grid-template-columns: 200px 200px 300px 200px 200px;
    grid-template-rows: 150px;
    column-gap: 40px;
 }
@@ -115,8 +127,8 @@ body {
 
    grid-row-start: 1;
    grid-row-end: 2;
-   grid-column-start: 2;
-   grid-column-end: 3;
+   grid-column-start: 1;
+   grid-column-end: 2;
 
    color: var(--dark-blue);
    background-color: white;
@@ -126,9 +138,11 @@ body {
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   padding:15px;
+  
 }
 
+
+/*
 .emergency_passes{
 
    grid-row-start: 1;
@@ -143,13 +157,42 @@ body {
    text-align: center;
 
 }
+*/
+
+.emergency_passes{
+   color: var(--dark-blue);
+   background-color: white;
+   box-shadow: 2px 2px 4px gray;
+
+   grid-row-start: 3;
+   grid-row-end: 5;
+   grid-column-start: 1;
+   grid-column-end: 4;
+}
 
 .history_passes{
 
    grid-row-start: 1;
    grid-row-end: 2;
-   grid-column-start: 3;
-   grid-column-end: 4;
+   grid-column-start: 2;
+   grid-column-end: 3;
+
+   color: var(--dark-blue);
+   background-color: white;
+   box-shadow: 2px 2px 4px gray;
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+
+}
+
+.history_passes_1{
+   grid-row-start: 4;
+   grid-row-end: 5;
+   grid-column-start: 4;
+   grid-column-end: 5;
 
    color: var(--dark-blue);
    background-color: white;

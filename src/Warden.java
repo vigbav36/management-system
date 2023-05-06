@@ -132,6 +132,6 @@ public class Warden extends User{
 
     public static void main(String[] args) {
         Warden warden = new Warden("varsha","warden@ssn.edu.in");
-        System.out.println(warden.getOutpasses(null, "under review"));
+        System.out.println(warden.getOutpasses("emergency", null));
     }
 }

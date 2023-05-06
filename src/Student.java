@@ -99,6 +99,7 @@ public class Student extends User{
                     rs.getString(7),
                     rs.getString(8)
                 );
+                break;
             }
             con.close();
             ps.close();
