@@ -12,6 +12,7 @@ public class Outpass {
     String status;
     String student_id;
     String comment;
+    String route;
     
     Outpass(String student_id,String outpass_id,String in_time,String out_time,String type,String reason,String status,String comment){
         this.student = new Student(student_id);
@@ -23,7 +24,7 @@ public class Outpass {
         this.status = status;
         this.comment =  comment;
     }
-    Outpass(String student_id,String in_time,String out_time,String type,String reason,String status){
+    Outpass(String student_id,String in_time,String out_time,String type,String reason,String status,String route){
         this.student = new Student(student_id);
         this.in_time = in_time;
         this.out_time = out_time;
@@ -32,6 +33,7 @@ public class Outpass {
         this.status = status;
         this.outpass_id = String.valueOf((int)Math.floor(Math.random()*9999));
         this.comment="";
+        this.route=route;
     }
     Outpass(String outpass_id){
         try{
@@ -148,6 +150,7 @@ public class Outpass {
             ps.setString(6, this.reason);
             ps.setString(7,"requested");
             ps.setString(8,null);
+            ps.setString(9,this.route);
             ps.executeUpdate();
         
     
