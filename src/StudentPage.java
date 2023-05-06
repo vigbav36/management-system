@@ -5,7 +5,7 @@ import java.io.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
-
+import java.util.*;
 /*
  * Servlet to display the warden view 
 */
@@ -27,12 +27,15 @@ public class StudentPage extends HttpServlet {
         request.setAttribute("requested", false);
 
         Outpass outpass = student.getExistingOutpass();
+        List<Outpass> outpass_list = student.getAllOutpasses();
 
         if(outpass != null){
             request.setAttribute("existing", true);
             request.setAttribute("existing_outpass",outpass);
+           
+            
         }
-
+        request.setAttribute("all_outpasses",outpass_list);
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\student.jsp");
         view.forward(request, response);   
         
