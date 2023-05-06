@@ -185,7 +185,7 @@
                 </div>
                 <div id="qrcode">
                     <script>
-                        var qrcode = new QRCode("qrcode","http://localhost:8080/outpass/authenticate?oid=${outpass.outpass_id}&sid=${student.id}");
+                        var qrcode = new QRCode("qrcode","http://localhost:8080/outpass/view?oid=${existing_outpass.outpass_id}");
                     </script>
                 </div>
             </div>

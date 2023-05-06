@@ -15,22 +15,20 @@ public class OutpassPage extends HttpServlet {
     throws IOException, ServletException
     {
         response.setContentType("text/html");
-
-        String warden_id = request.getParameter("wid");
         String outpass_id = request.getParameter("oid");
-        //String student_id = request.getParameter("sid");
-
-        if(warden_id.equals("") || outpass_id.equals("")){
-            RequestDispatcher view = request.getRequestDispatcher("/");
-            view.forward(request, response);  
-            return; 
-        }
-        HttpSession session = request.getSession(false);
-        request.setAttribute("user", session.getAttribute("user"));
         
+        HttpSession session = request.getSession(false);
+        User user = (User)session.getAttribute("user");
+       
+
+        if(!user.type.equals("authenticator") && !user.type.equals("warden")){
+            response.sendRedirect(request.getContextPath() + "/");
+            return;
+        }
+
         Outpass outpass = new Outpass(outpass_id);
         request.setAttribute("outpass", outpass);
-        request.setAttribute("warden_id", warden_id);
+        request.setAttribute("user", session.getAttribute("user"));
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\outpass.jsp");
         view.forward(request, response);          
     }

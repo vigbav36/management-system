@@ -22,7 +22,7 @@
     <servlet-mapping>
         <servlet-name>OutpassPage</servlet-name> 
         <url-pattern>/view</url-pattern>
-    </servlet-mapping> 
+    </servlet-mapping>
     <servlet>
         <servlet-name>Accept</servlet-name>
         <servlet-class>src.Accept</servlet-class>
@@ -70,5 +70,13 @@
     <servlet-mapping>
         <servlet-name>AuthenticatorPage</servlet-name>
         <url-pattern>/authenticator</url-pattern>
+    </servlet-mapping>  
+    <servlet>
+        <servlet-name>Authenticate</servlet-name>
+        <servlet-class>src.Authenticate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Authenticate</servlet-name>
+        <url-pattern>/authenticate</url-pattern>
     </servlet-mapping>
 </web-app>

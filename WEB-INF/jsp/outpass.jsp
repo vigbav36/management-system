@@ -174,6 +174,11 @@
                         Review
                     </div>
                 </c:when>
+                <c:otherwise>
+                    <div class="button" id="auth_button"><a
+                        href="http://localhost:8080/outpass/authenticate?oid=${outpass.outpass_id}">Accept</a>
+                    </div>
+                </c:otherwise>
             </c:choose>
         </div>
         <div class="comment_form" style="background-color:#c7cadd;display: none;" id="reject_form">
