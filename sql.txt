@@ -83,3 +83,86 @@ UPDATE outpass set route = 'S1' where outpass_id in ('0','1');
 
 ALTER TABLE outpass
 ADD route VARCHAR(50);
+
+
+
+----------------------NEW USERS--------------------------------------------
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud13@ssn.edu.in', '1234', 'student', 9002, 'sumon a');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud14@ssn.edu.in', '1234', 'student', 9003, 'sumon b');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud15@ssn.edu.in', '1234', 'student', 9004, 'sumon c');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud16@ssn.edu.in', '1234', 'student', 9005, 'sumon d');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud5@ssn.edu.in', '1234', 'student', 9006, 'sumon e');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud6@ssn.edu.in', '1234', 'student', 9007, 'sumon f');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud7@ssn.edu.in', '1234', 'student', 9008, 'sumon g');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud8@ssn.edu.in', '1234', 'student', 9009, 'sumon h');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud9@ssn.edu.in', '1234', 'student', 9010, 'sumon i');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud10@ssn.edu.in', '1234', 'student', 9011, 'sumon j');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud11@ssn.edu.in', '1234', 'student', 9012, 'sumon k');
+
+INSERT INTO user (email, password, type, id, name)
+VALUES ('stud12@ssn.edu.in', '1234', 'student', 9013, 'varsha');
+
+
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('9002', 'FD-16', '6', 4);
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('9003', 'FD-17', '6', 4);
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('9004', 'FD-18', '6', 4);
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('9005', 'FD-19', '6', 4);
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('9006', 'FD-20', '6', 4);
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('9007', 'FD-21', '6', 4);
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('9008', 'FD-22', '6', 4);
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('9009', 'FD-23', '6', 4);
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('9010', 'FD-24', '6', 4);
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('9011', 'FD-25', '6', 4);
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('9012', 'FD-26', '6', 4);
+
+INSERT INTO student (id,room_no,hostel_no,no_outpasses)
+VALUES ('9013', 'FD-27', '6', 4);
+
+
+UPDATE student 
+SET branch = 'CSE', year = 3
+WHERE id in (9001,9002,9003,9004,9005,9006,9007,9008,9009,9010,9011,9012,9013);

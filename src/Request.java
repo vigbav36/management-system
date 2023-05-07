@@ -35,10 +35,11 @@ public class Request extends HttpServlet {
 
         Outpass outpass = new Outpass(id,in_date,out_date,priority,reason,"requested",route);
         outpass.addOutpass();
-        //student.updateOutpassCount();
+        
+        student.updateOutpassCount();
 
-        PrintWriter out = response.getWriter();
-        out.println(name+" "+id+" "+in_date+" "+out_date+" "+priority+" "+reason);
+        response.sendRedirect("student");
+
     }
 }
 

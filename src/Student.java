@@ -119,7 +119,7 @@ public class Student extends User{
         List<Outpass> result = new ArrayList<Outpass>();
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
-            String query = "SELECT * from OUTPASS where student_id = ? and status IN (\"authenticated\")";
+            String query = "SELECT * from OUTPASS where student_id = ? and status IN (\"authenticated\",\"rejected\")";
         
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, this.id);

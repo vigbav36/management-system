@@ -138,7 +138,7 @@ public class Outpass {
 
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
-            String query = "INSERT INTO outpass VALUES (?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO outpass VALUES (?,?,?,?,?,?,?,?,?)";
         
             PreparedStatement ps = con.prepareStatement(query);
 
@@ -151,6 +151,7 @@ public class Outpass {
             ps.setString(7,"requested");
             ps.setString(8,null);
             ps.setString(9,this.route);
+
             ps.executeUpdate();
         
     

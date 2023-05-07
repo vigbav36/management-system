@@ -74,7 +74,9 @@
                 </p>
             </div>
             <div class="view_routes">
-                <h3>Bus Routes</h3>
+                <a href="ajax_info.txt" download="bus_route">
+                    <h3>Bus Routes</h3>
+                </a>
             </div>
         </div>
         <c:choose>
