@@ -27,6 +27,7 @@ public class StudentPage extends HttpServlet {
         request.setAttribute("requested", false);
 
         Outpass outpass = student.getExistingOutpass();
+        
         List<Outpass> outpass_list = student.getAllOutpasses();
 
         if(outpass != null){

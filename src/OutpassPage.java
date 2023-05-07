@@ -28,7 +28,7 @@ public class OutpassPage extends HttpServlet {
 
         Outpass outpass = new Outpass(outpass_id);
         request.setAttribute("outpass", outpass);
-        request.setAttribute("user", session.getAttribute("user"));
+        request.setAttribute("user", user);
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\outpass.jsp");
         view.forward(request, response);          
     }

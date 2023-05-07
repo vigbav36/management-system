@@ -175,9 +175,13 @@
                     </div>
                 </c:when>
                 <c:otherwise>
-                    <div class="button" id="auth_button"><a
-                        href="http://localhost:8080/outpass/authenticate?oid=${outpass.outpass_id}">Accept</a>
-                    </div>
+                    <c:choose>
+                        <c:when test="${user.type == 'authenticator'}">
+                            <div class="button" id="auth_button"><a
+                                href="http://localhost:8080/outpass/authenticate?oid=${outpass.outpass_id}">Accept</a>
+                            </div>
+                        </c:when>
+                    </c:choose>
                 </c:otherwise>
             </c:choose>
         </div>
