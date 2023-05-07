@@ -4,6 +4,7 @@ import java.sql.*;
 
 import java.util.*;
 
+
 public class Transport extends User{
 
     String id;
@@ -55,13 +56,16 @@ public class Transport extends User{
                 String count = rs.getString("count(route)");
                 passes.add(new String[]{route,count});
             }
+
+           
+
             con.close();
             ps.close();
             return passes;
         }
         catch(Exception e){
-            System.out.println("error "+e.toString());
-            return null;
+            System.out.println("error");
+            return passes;
         }
     }
 

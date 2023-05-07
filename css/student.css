@@ -188,11 +188,19 @@
     background-color: white;
     color: var(--dark-blue);
     box-shadow: 2px 2px 4px gray;
-
-    overflow: hidden;
 }
 
+img {
+   width: 180px;
+   height: 180px;
+}
+
+.profile img {
+   width: 40px;
+   height: 40px;
+}
 .outpass_history {
+
     grid-row-start: 2;
     grid-row-end: 5;
     grid-column-start: 4;
@@ -231,4 +239,40 @@
     background-color: #4d525e;
     color: var(--light-blue);
     box-shadow: 2px 2px 2px gray;
+}
+
+.profile_content {
+   background-color: #c9cce0;
+   border-radius: 8px;
+   padding: 10px;
+   margin: 10px;
+
+   display:flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-evenly;
+
+   column-gap: 10px;
+}
+
+.outpass_content {
+  
+   border-radius: 8px;
+   padding: 10px;
+   margin: 10px;
+
+   display:flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-evenly;
+}
+
+li {
+   margin-top: 16px;
+   font-size: 16px;
+   font-weight: 300px;
+}
+
+#qrcode {
+   justify-self: flex-end;
 }
