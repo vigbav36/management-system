@@ -30,9 +30,10 @@ public class Request extends HttpServlet {
     
         String priority = request.getParameter("priority").toLowerCase();
         String reason = request.getParameter("reason");
+        String route = request.getParameter("route");
         
 
-        Outpass outpass = new Outpass(id,in_date,out_date,priority,reason,"requested");
+        Outpass outpass = new Outpass(id,in_date,out_date,priority,reason,"requested",route);
         outpass.addOutpass();
         //student.updateOutpassCount();
 

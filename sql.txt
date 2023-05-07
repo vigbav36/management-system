@@ -32,6 +32,9 @@ VALUES (2, 1, 'normal', 'Going shopping', 'requested', '2023-04-29', '2023-04-30
 INSERT INTO outpass (student_id, outpass_id, type, reason, status, in_time, out_time)
 VALUES (3, 2, 'emergency', 'Going shopping', 'requested', '2023-04-29', '2023-04-30');
 
+INSERT INTO outpass (student_id, outpass_id, type, reason, status, in_time, out_time)
+VALUES (4, 56, 'emergency', 'Going shopping', 'approved', '2023-04-29', '2023-04-30');
+
 INSERT INTO user (email, password, type, id, name)
 VALUES ('warden2@ssn.edu.in', '1234', 'warden', 122, 'Sham');
 
@@ -56,6 +59,13 @@ ADD comment VARCHAR(50);
 
 delete from outpass where student_id = "1";
 
+UPDATE outpass set route = 'S1' where outpass_id in ('56');
+
+--------------------------------------------------------------------------------
+    NEWER STUFF
+--------------------------------------------------------------------------------
+INSERT INTO user (email, password, type, id, name)
+VALUES ('trans@ssn.edu.in', '1234', 'transport', 12, 'tom');
 
 
 //javac -cp "C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\WEB-INF\lib\jstl-1.2.jar;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\WEB-INF\lib\mysql-connector-j-8.0.32.jar;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\WEB-INF\lib\servlet-api.jar;C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\src" -d "C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\outpass\WEB-INF\classes" --release 8 Login.java User.java Warden.java Outpass.java WardenPage.java Student.java OutpassPage.java Accept.java Reject.java StudentPage.java Review.java
