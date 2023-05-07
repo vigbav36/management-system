@@ -65,7 +65,7 @@ public class Transport extends User{
         }
         catch(Exception e){
             System.out.println("error");
-            return passes;
+            return null;
         }
     }
 

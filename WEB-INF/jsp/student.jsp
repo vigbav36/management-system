@@ -145,7 +145,7 @@
                             <c:when test="${existing_outpass.status == 'approved'}">
                                 <div id="qrcode">
                                     <script>
-                                        var qrcode = new QRCode("qrcode", "http://localhost:8080/outpass/authenticate?oid=${existing_outpass.outpass_id}&sid=${student.id}");
+                                        var qrcode = new QRCode("qrcode", "http://localhost:8080/outpass/view?oid=${existing_outpass.outpass_id}");
                                     </script>
                                 </div>
                             </c:when>
