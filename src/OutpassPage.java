@@ -25,10 +25,10 @@ public class OutpassPage extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/");
             return;
         }
-        
         Outpass outpass = new Outpass(outpass_id);
         request.setAttribute("outpass", outpass);
         request.setAttribute("user", user);
+        
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\outpass.jsp");
         view.forward(request, response);          
     }
