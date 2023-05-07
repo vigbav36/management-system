@@ -33,6 +33,9 @@ public class User {
     public String getId() {
         return id;
     }
+    public String getType() {
+        return type;
+    }
     public String login(String password) throws IOException, ServletException{
         try{
             Class.forName("com.mysql.jdbc.Driver");
