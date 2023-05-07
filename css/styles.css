@@ -1,66 +1,76 @@
 :root {
     --dark-brown: #191308;
-    --light-brown:#322A26;
-    --purple:#9CA3DB;
-    --dark-blue: #454B66;
+    --light-brown: #322A26;
+    --purple: #9CA3DB;
+    --dark-blue: #353b48;
     --light-blue: #677DB7;
  }
- 
-body{
- display:flex;
- justify-content: center;
- align-items:center;
- min-height:100vh;
- margin:0 auto;
- flex-direction: column;
- background-color: #c7cadd;
+
+body {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0 auto;
+    flex-direction: row;
+    background-color: rgb(244, 240, 240);
 }
 
 .content {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    color: var(--dark-blue);
+    background-color: white;
+    box-shadow: 2px 2px 4px gray;
 }
-.login-heading{
-    width:100%;
-    background-color:var(--dark-blue);
-    text-align:center;
+
+
+.login-box {
+   
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.login-box{
-    background-color:var(--dark-blue);
-    text-align: center;
-}
+
 .logo {
-    
-    background-color:white;
+
+    background-color: white;
     text-align: center;
     padding: 50px;
 }
-.login-form{
-    padding:20px;
-    background-color:var(--dark-gray);
-    display:flex;
+
+.login-form {
+    padding: 20px;
+    background-color: var(--dark-gray);
+    display: flex;
     justify-content: center;
-    flex-direction:column;
-    align-items:center;
+    flex-direction: column;
+    align-items: center;
 }
-input:focus{
+
+input:focus {
     outline: none !important;
-    border: 3px var(--black) solid;
+    border: 3px var(--purple) solid;
 
 }
-input{
-    margin-bottom:20px;
-    padding:10px;
-    width:180px;
+
+input {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 180px;
 }
-#submit{
-   padding:10px;
-   background-color:var(--purple);
-   width:180px;
-   color:white;
-   border:none;
+
+#submit {
+    padding: 10px;
+    background-color: var(--light-blue);
+    width: 200px;
+    color: white;
+    border: none;
 }
 
 #submit:hover {
-    background-color:var(--light-blue);
+    background-color: var(--purple);
+    color: gray;
 }

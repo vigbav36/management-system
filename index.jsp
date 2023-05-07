@@ -20,7 +20,8 @@ and open the template in the editor.
 <body>
     <div class="content">
         <div class="logo">
-            <img src="images\papertray.png" height="200px" width="200px">
+            <img src="images\database.png" height="150px" width="150px">
+            <h3>Outpass Management System</h3>
         </div>
         <div class="login-box">
             <form class="login-form" action="http://localhost:8080/outpass/login" method="get">

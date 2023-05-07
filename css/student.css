@@ -259,7 +259,6 @@ img {
   
    border-radius: 8px;
    padding: 10px;
-   margin: 10px;
 
    display:flex;
    flex-direction: row;
@@ -267,8 +266,14 @@ img {
    justify-content: space-evenly;
 }
 
-li {
+.profile_content li {
    margin-top: 16px;
+   font-size: 16px;
+   font-weight: 300px;
+}
+
+.outpass_content li {
+   margin-top: 10px;
    font-size: 16px;
    font-weight: 300px;
 }

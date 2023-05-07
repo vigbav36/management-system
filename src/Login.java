@@ -43,6 +43,10 @@ public class Login extends HttpServlet {
                 view.forward(request, response);   
             }
         }
+        else 
+            {
+                response.sendRedirect("");  
+            }
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)

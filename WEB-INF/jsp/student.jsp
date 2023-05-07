@@ -156,11 +156,17 @@
                             <li><strong>Out Date:</strong> ${existing_outpass.out_time}</li>
                             <li><strong>In Date:</strong> ${existing_outpass.in_time}</li>
                             <li><strong>Type:</strong> ${existing_outpass.type}</li>
-                            <li><strong>Reason:</strong> ${existing_outpass.reason}</li>
-                            <li><strong>Comments -</strong>${existing_outpass.comment}</li>
+                            <li><strong>Reason:</strong> ${existing_outpass.reason}</li> 
                         </ul>
-                        <div style="font-size: 30px; padding: 5px; border:2px black solid;border-radius: 8px; ">
-                            ${existing_outpass.status}
+                        <div >
+                            <c:choose>
+                                <c:when test="${existing_outpass.status == 'under review'}">
+                                    <p><strong>Comments -</strong>${existing_outpass.comment}</p>
+                                </c:when>
+                            </c:choose>
+                            <p style="font-size: 30px; padding: 5px; border:2px black solid;border-radius: 8px; text-align: center;box-shadow: 2px 2px 2px gray;">
+                                ${existing_outpass.status}
+                            </p>
                         </div>
                     </div>
                 </div>
