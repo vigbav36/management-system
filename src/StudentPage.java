@@ -33,7 +33,7 @@ public class StudentPage extends HttpServlet {
            
             
         }
-        request.setAttribute("all_outpasses",outpass_list);
+        request.setAttribute("all_outpass",outpass_list);
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\student.jsp");
         view.forward(request, response);   
         

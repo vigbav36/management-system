@@ -77,96 +77,93 @@
                 <h3>Bus Routes</h3>
             </div>
         </div>
-        <div class="request_outpass_section">
-            <c:choose>
-                <c:when test="${!existing}">
+        <c:choose>
+            <c:when test="${!existing}">
+                <div class="request_outpass_section">
+           
                     <div style="background-color:  #353b48;">
                         <h5 class="ml-lg-2" style="color:white;padding:3px;">Request Outpass ${existing}</h5>
                     </div>
                     <form class="request_form" action="http://localhost:8080/outpass/request">
-            
-                          
-                            <label>Outpass No</label>
-                            <span>${5 - student.outpasses}</span>
-                            <label>Out Date and time</label>
-                            <input type="datetime-local" class="input_field" name="out_date" />
-
-                            <label>In Date and time</label>
-                            <input type="datetime-local" class="input_field" name="in_date" />
 
 
-                            <label>Priority</label>
-                            <input type="text" list="priority_list" name="priority" id="priority" />
-                            <datalist id="priority_list">
-                                <option value="Emergency">
-                                <option value="Normal">
-                            </datalist>
+                        <label>Outpass No</label>
+                        <span>${5 - student.outpasses}</span>
+                        <label>Out Date and time</label>
+                        <input type="datetime-local" class="input_field" name="out_date" />
 
-                            <label>Route</label>
-                            <input type="text" list="route_list" name="route" id="route" />
-                            <datalist id="route_list">
-                                <option value="s1">
-                                <option value="s2">
-                                <option value="s3">
-                                <option value="not required">
-                            </datalist>
+                        <label>In Date and time</label>
+                        <input type="datetime-local" class="input_field" name="in_date" />
 
 
-                            <label>Reason</label>
-                            <textarea rows="5" cols="50"
-                                style="height: 80px;box-sizing: border-box;width:100%;resize: none;" id="reason"
-                                name="reason">
+                        <label>Priority</label>
+                        <input type="text" list="priority_list" name="priority" id="priority" />
+                        <datalist id="priority_list">
+                            <option value="Emergency">
+                            <option value="Normal">
+                        </datalist>
+
+                        <label>Route</label>
+                        <input type="text" list="route_list" name="route" id="route" />
+                        <datalist id="route_list">
+                            <option value="s1">
+                            <option value="s2">
+                            <option value="s3">
+                            <option value="not required">
+                        </datalist>
+
+
+                        <label>Reason</label>
+                        <textarea rows="5" cols="50"
+                            style="height: 80px;box-sizing: border-box;width:100%;resize: none;" id="reason"
+                            name="reason">
                             </textarea>
-                            <label></label>
-                            <input type="submit" id="button"/>
-        
+                        <label></label>
+                        <input type="submit" id="button" />
+
                     </form>
         </div>
         </c:when>
         <c:otherwise>
             <div class="outpass_status_section">
                 <div style="background-color:  #353b48;">
-                    <h2 class="ml-lg-2" style="color:white">Outpass Status</h2>
+                    <h5 class="ml-lg-2" style="color:white;padding:5px;">Outpass Status</h5>
                 </div>
-                <div class="passes">
-                    <div class="outpass">
-                        <div style="background-color: #c9cce0;border-radius: 8px;padding: 10px;margin: 10px;">
-                            <div style="float:left;">
-                                <img src="papertray.png" height="100px" width="100px">
-                            </div>
-                            <div style="margin-left: 30%;">
-                                <ul style="list-style-type:none;">
-                                    <li>Pass No: ${existing_outpass.outpass_id}</li>
-                                    <li>Name: ${student.name}</li>
-                                    <li>Student ID: ${student.id}</li>
-                                </ul>
-                            </div>
+                <div>
+                    <div class="profile_content">
+                        <div style="float:left;">
+                            <img src="images\woman.jpg" height="50px" width="50px" style="border-radius: 8px;">
                         </div>
+                        <div>
+                            <ul style="list-style-type:none;">
+                                <li><strong>Pass No: </strong>${existing_outpass.outpass_id}</li>
+                                <li><strong>Name: </strong> ${student.name}</li>
+                                <li><strong>ID: </strong>${student.id}</li>
+                            </ul>
+                        </div>
+                        <c:choose>
+                            <c:when test="${existing_outpass.status == 'approved'}">
+                                <div id="qrcode">
+                                    <script>
+                                        var qrcode = new QRCode("qrcode", "http://localhost:8080/outpass/authenticate?oid=${existing_outpass.outpass_id}&sid=${student.id}");
+                                    </script>
+                                </div>
+                            </c:when>
+                        </c:choose>
+                    </div>
+                    <div class="outpass_content">
                         <ul style="list-style-type:none;">
-                            <li> Out Date: ${existing_outpass.out_time}</li>
-
-                            <li>In Date: ${existing_outpass.in_time}</li>
-
-                            <li>Type: ${existing_outpass.type}</li>
-                            <li>Reason: ${existing_outpass.reason}</li>
+                            <li><strong>Out Date:</strong> ${existing_outpass.out_time}</li>
+                            <li><strong>In Date:</strong> ${existing_outpass.in_time}</li>
+                            <li><strong>Type:</strong> ${existing_outpass.type}</li>
+                            <li><strong>Reason:</strong> ${existing_outpass.reason}</li>
+                            <li><strong>Comments -</strong>${existing_outpass.comment}</li>
                         </ul>
-                    </div>
-                    <div class="status">
-                        ${existing_outpass.status}
-                    </div>
-                    <div>
-                        Comments - ${existing_outpass.comment}
+                        <div style="font-size: 30px; padding: 5px; border:2px black solid;border-radius: 8px; ">
+                            ${existing_outpass.status}
+                        </div>
                     </div>
                 </div>
-                <c:choose>
-                    <c:when test="${existing_outpass.status == 'approved'}">
-                    <div id="qrcode">
-                        <script>
-                            var qrcode = new QRCode("qrcode", "http://localhost:8080/outpass/authenticate?oid=${outpass.outpass_id}&sid=${student.id}");
-                        </script>
-                    </div>
-                </c:when>
-                </c:choose>
             </div>
         </c:otherwise>
         </c:choose>

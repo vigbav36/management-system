@@ -3,7 +3,7 @@ import java.sql.*;
 //import java.util.*;
 
 import java.util.*;
-import javafx.util.Pair;
+
 
 public class Transport extends User{
 
@@ -57,13 +57,15 @@ public class Transport extends User{
                 passes.add(new String[]{route,count});
             }
 
-            return passes;
+           
 
             con.close();
             ps.close();
+            return passes;
         }
         catch(Exception e){
             System.out.println("error");
+            return passes;
         }
     }
 
