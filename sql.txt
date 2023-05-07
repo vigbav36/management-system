@@ -75,3 +75,11 @@ VALUES ('trans@ssn.edu.in', '1234', 'transport', 12, 'tom');
 
 INSERT INTO user (email, password, type, id, name)
 VALUES ('auth@ssn.edu.in', '1234', 'authenticator', 9812, 'joan');
+
+INSERT INTO transport    (id, designation)
+VALUES ('9812','transport head');
+
+UPDATE outpass set route = 'S1' where outpass_id in ('0','1');
+
+ALTER TABLE outpass
+ADD route VARCHAR(50);

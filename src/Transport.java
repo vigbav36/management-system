@@ -3,7 +3,6 @@ import java.sql.*;
 //import java.util.*;
 
 import java.util.*;
-import javafx.util.Pair;
 
 public class Transport extends User{
 
@@ -45,9 +44,9 @@ public class Transport extends User{
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
             
-            String query = "Select route, count(route) from outpass where outpass.status='approved' group by route;";
+            String query = "Select route, count(route) from outpass where outpass.status in ('approved','authenticated') group by route;";
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, id);
+
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
@@ -56,21 +55,20 @@ public class Transport extends User{
                 String count = rs.getString("count(route)");
                 passes.add(new String[]{route,count});
             }
-
-            return passes;
-
             con.close();
             ps.close();
+            return passes;
         }
         catch(Exception e){
-            System.out.println("error");
+            System.out.println("error "+e.toString());
+            return null;
         }
     }
 
     
     public static void main(String[] args) {
-        Student student = new Student("1");
-        System.out.println(student.getExistingOutpass().comment);
+        Transport transport = new Transport("9812");
+        System.out.println(transport.getCurrentOutpasses().get(0)[0]);
     }
 }
 

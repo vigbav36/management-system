@@ -38,7 +38,10 @@ public class Login extends HttpServlet {
                 RequestDispatcher view = request.getRequestDispatcher("/authenticator");
                 view.forward(request, response);   
             }
-
+            else if(type.equals("transport")){
+                RequestDispatcher view = request.getRequestDispatcher("/transport");
+                view.forward(request, response);   
+            }
         }
     }
 

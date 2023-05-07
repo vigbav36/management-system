@@ -64,6 +64,14 @@
         <url-pattern>/student</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>TransportPage</servlet-name>
+        <servlet-class>src.TransportPage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TransportPage</servlet-name>
+        <url-pattern>/transport</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>AuthenticatorPage</servlet-name>
         <servlet-class>src.AuthenticatorPage</servlet-class>
     </servlet>

@@ -29,7 +29,6 @@ public class TransportPage extends HttpServlet {
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\transport.jsp");
         view.forward(request, response);   
         
-        
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException{

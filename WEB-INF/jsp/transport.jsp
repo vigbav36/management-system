@@ -32,12 +32,13 @@
             <div class="col-sm-6 p-0 d-flex justify-content-lg-start justify-content-center">
                 <h2 class="ml-lg-2">Click here to download transport</h2>
             </div>
-            varsha is hot
+            <c:forEach var="outpass" items="${outpass_list}">
+                <tr>
+                    <td>${outpass[0]}</td> 
+                    <td>${outpass[1]}</td> 
+                </tr>
+            </c:forEach>
         </div>
-        <img src="images\qr-code.png" width="150px" height="150px">
-        <form id="vignesh_wants_this">
-            
-        </form>
     </div>
 </body>
 
