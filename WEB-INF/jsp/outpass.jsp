@@ -36,131 +36,64 @@
     </div>
     <div class="content_pane">
         <div class="outpass">
+            <div class="header">
+                <h2>
+                    SSMCE
+                </h2>
+                <div>
+                    <h6 style="color:white;">Outpass</h6>
+                    <h4>
+                        ${outpass.type}
+                    </h4>
+                </div>
+            </div>
             <div class="student_details">
-                <table style="background-color: white;">
-                    <tr>
-                        <td>
-                            <div>
-                                <h3>NAME</h3>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <h3>${outpass.student.name}</h3>
-                            </div>
-                        </td>
-                        <td rowspan="5">
-                            <img src="images/profile.avif" height="150px">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                <h3>YEAR</h3>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <h3>${outpass.student.year}</h3>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                <h3>BRANCH</h3>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <h3>${outpass.student.branch}</h3>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                <h3>HOSTEL</h3>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <h3>${outpass.student.hostel_no}</h3>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                <h3>ROOM</h3>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <h3>${outpass.student.room_no}</h3>
-                            </div>
-                        </td>
-                    </tr>
-
-                </table>
+                <div id="branch">
+                    <p>Branch</p>
+                    ${outpass.student.branch}
+                </div>
+                <div id="year">
+                    <p>Year</p>
+                    ${outpass.student.year}
+                </div>
+                <div id="hostel">
+                    <p>Hostel</p>
+                    ${outpass.student.hostel_no}
+                </div>
+                <div id="room">
+                    <p>Room</p>
+                    ${outpass.student.room_no}
+                </div>
+                <div id="indate">
+                    <p>In date</p>
+                    ${outpass.in_time}
+                </div>
+                <div id="outdate">
+                    <p>Out date</p>
+                    ${outpass.out_time}
+                </div>
             </div>
             <div class="outpass_details">
-                <table style="background-color: white;">
-                    <tr>
-                        <td>
-                            <div>
-                                <h3>TYPE</h3>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <h3>${outpass.type}</h3>
-                            </div>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                <h3>OUT-DATE</h3>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <h3>${outpass.out_time}</h3>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                <h3>IN-TIME</h3>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <h3>${outpass.in_time}</h3>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div>
-                                <h3>REASON</h3>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <h3>${outpass.reason}</h3>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                <div style="padding-left: 15px;">
+                    <div>
+                        <p>Name</p>
+                        <h2 style="margin-top:0px;">
+                            ${outpass.student.name}
+                        </h2>
+                    </div>
+                    <div>
+                        <p>Reason</p>
+                        <p style="margin-top:0px;font-size: 25px;color: #353b48;">
+                            ${outpass.reason}
+                        </p>
+                    </div>
+                </div>
             </div>
+               
         </div>
         <div class="choice">
             <c:choose>
-                <c:when test="${outpass.status != 'rejected'}">
+                <c:when test="${outpass.status == 'requested' || outpass.status == 'under review'}">
 
                     <div class="button1" id="accept_button"><a
                             href="http://localhost:8080/outpass/accept?oid=${outpass.outpass_id}&wid=${warden_id}"> <img src="images\accept.jpeg" width="30px" height="30px"></a>
@@ -177,8 +110,6 @@
                     <div class="button1" id="reject_button" onclick="reject()">
                         <img src="images\reject.jpeg" width="30px" height="30px">
                     </div>
-
-                   
                 </c:when>
                 <c:otherwise>
                     <c:choose>

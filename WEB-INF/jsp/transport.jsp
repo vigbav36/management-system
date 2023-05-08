@@ -90,6 +90,12 @@
 
             </div>
         </div>
+        <div>
+            <form action="http://localhost:8080/outpass/transport" method="post" enctype="multipart/form-data">
+                Select file to upload: <input type="file" name="file"><br>
+                <input type="submit" value="Upload">
+            </form>
+        </div>
     </div>
 </body>
 

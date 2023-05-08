@@ -85,71 +85,157 @@ body {
 
 .content_pane {
 
-   display: grid;
-   grid-template-columns: 1fr 250px;
-   grid-template-rows: 1fr 1fr;
-   column-gap: 40px;
-   row-gap: 20px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap:30px;
+
    margin: 20px;
    grid-column-start: 2;
    grid-column-end: 7;
    grid-row-start: 1;
    grid-row-end: 2;
 }
-
 .outpass {
+
+
+   color: var(--dark-blue);
+   box-shadow: 2px 2px 4px gray;
+   border-radius: 8px;
+
+   width: 400px;
+   height: 400px;
+
+   display:grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: 70px 150px 1fr;
+   column-gap: 0px;
+   row-gap: 0px;
+
+}
+
+
+.header {
+   background-color: var(--dark-blue);
+   color:white;
+   display:flex;
+   justify-content: space-between;
+   padding: 10px;
+
    grid-column-start: 1;
    grid-column-end: 2;
    grid-row-start: 1;
-   grid-row-end: 3;
+   grid-row-end: 2;
 
-   color: var(--dark-blue);
-   background-color: white;
-   box-shadow: 2px 2px 4px gray;
+   border-radius: 8px 8px 0px 0px;
+   width: 98%;
 
-}
-
-.outpass_details {
-   grid-column-start: 2;
-   grid-column-end: 3;
-   grid-row-start: 2;
-   grid-row-end: 3;
-   border-radius: 8px;
-   background-color: white;
-   margin-left: 12px;
 }
 
 .student_details {
-
-   border-radius: 8px;
-   border:0.05px solid #a8acb5;
-   background-color: #a8acb5;
-   margin: 20px;
+   background-color: #e1e4eb;
+   padding-left: 20px;
+   padding-right: 20px;
    grid-column-start: 1;
    grid-column-end: 2;
    grid-row-start: 2;
    grid-row-end: 3;
+
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-template-rows: 1fr 1fr;
+
+   border-top: 0.5px var(--dark-blue);
+   border-bottom: 0.5px var(--dark-blue) solid;
+
+   width: 93%;
+
+}
+.student_details p,.outpass_details p{
+   margin-bottom: 0px;
+   color: gray;
 }
 
-.choice {
-   background-color: rgb(244, 240, 240);
+#branch {
+   grid-column-start: 1;
+   grid-column-end: 2;
+   grid-row-start: 1;
+   grid-row-end: 2;
+}
+
+#year {
    grid-column-start: 2;
    grid-column-end: 3;
    grid-row-start: 1;
    grid-row-end: 2;
+
+   border-right: 0.5px black solid;
+}
+#hostel {
+   grid-column-start: 1;
+   grid-column-end: 2;
+   grid-row-start: 2;
+   grid-row-end: 3;
+}
+#room {
+   grid-column-start: 2;
+   grid-column-end: 3;
+   grid-row-start: 2;
+   grid-row-end: 3;
+
+   border-right: 0.5px var(--dark-blue) solid;
+}
+
+#indate {
+   grid-column-start: 3;
+   grid-column-end: 5;
+   grid-row-start: 1;
+   grid-row-end: 2;
+   padding-left: 10px;
+
+}
+#outdate {
+   grid-column-start: 3;
+   grid-column-end: 5;
+   grid-row-start: 2;
+   grid-row-end: 3;
+   padding-left: 10px;
+   
+}
+
+.outpass_details {
+   grid-column-start: 1;
+   grid-column-end: 2;
+   grid-row-start: 3;
+   grid-row-end: 4;
+   border-radius: 8px;
+   padding: 10px;
+   border-radius: 0px 0px 8px 8px;
+   background-color: white;
+
+   width: 98%;
+}
+
+
+.choice {
+   background-color: rgb(244, 240, 240);
+  
    display: flex;
    flex-direction: column;
-   align-items: flex-start;
-   justify-content: flex-start;
-   gap:20px;
+   align-items: center;
+   justify-content: space-between;
    padding: 10px;
+   gap:20px;
+
+   height: 100px;
+   width: 100px;
 }
 
 .comment_form {
-   grid-column-start: 1;
-   grid-column-end: 3;
-   grid-row-start: 4;
-   grid-row-end: 5;
+  
+   height: 200px;
+   width: 250px;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -172,29 +258,12 @@ body {
 }
 
 
-table {
-   background-color: rgb(244, 240, 240);
-   margin: 15px;
-   font-size: 15px;
-   border-radius: 8px;
-   font-weight: 0;
-}
-
-td {
-   padding-right: 2rem;
-   padding-left: 2rem;
-   width: 50%;
-}
-
-th {
-   font-weight: 800;
-}
-
 #option_form {
    display: none;
    background-color: #eff1f9;
    border-radius: 3px;
    padding: 10px;
+   width: 180px;
 }
 
 a {
@@ -217,6 +286,8 @@ textarea {
    resize: none;
    border-radius: 5px;
    padding: 5px;
+   width: 180px;
+   height: 100px;
 }
 
 input[type=submit] {

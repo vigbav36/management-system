@@ -19,7 +19,7 @@ public class AuthenticatorPage extends HttpServlet {
         
         HttpSession session = request.getSession(false);
         User user = (User)session.getAttribute("user");
-    
+        
 
         RequestDispatcher view = request.getRequestDispatcher("WEB-INF\\jsp\\authenticator.jsp");
         view.forward(request, response);   
