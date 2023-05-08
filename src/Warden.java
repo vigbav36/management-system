@@ -77,12 +77,12 @@ public class Warden extends User{
 
             if(type!=null){
                 if(type.equals("all")){
-                    query = "SELECT * FROM outpass where student_id in (select id from student where hostel_no = ?)";
+                    query = "SELECT * FROM outpass where student_id in (select id from student where hostel_no = ?) and status in ('under review', 'requested')";
                     ps = con.prepareStatement(query);
                     ps.setString(1,this.hostel_no);
                 }
                 else{
-                    query = "SELECT * FROM outpass WHERE type = ? and student_id in (select id from student where hostel_no = ?)";
+                    query = "SELECT * FROM outpass WHERE type = ? and student_id in (select id from student where hostel_no = ?) and status in ('under review', 'requested')";
                     ps = con.prepareStatement(query);
                     ps.setString(1,type);
                     ps.setString(2,this.hostel_no);
@@ -92,7 +92,7 @@ public class Warden extends User{
                 
             }
             else{
-                query = "SELECT * FROM outpass where status= ? and student_id in (select id from student where hostel_no = ?)";
+                query = "SELECT * FROM outpass where status= ? and student_id in (select id from student where hostel_no = ?) and status in ('under review', 'requested') ";
                 ps = con.prepareStatement(query);
                 ps.setString(1,status);
                 ps.setString(2,this.hostel_no);
@@ -132,6 +132,6 @@ public class Warden extends User{
 
     public static void main(String[] args) {
         Warden warden = new Warden("varsha","warden@ssn.edu.in");
-        System.out.println(warden.getOutpasses(null, "under review"));
+        System.out.println(warden.getOutpasses("emergency", null));
     }
 }

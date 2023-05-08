@@ -20,10 +20,8 @@
             <p style="font-size: 25px;margin-top: 0;padding-top: 0;">${name}</p>
         </div>
         <div style="margin-left:15px">
-            <a href="/" style="font-size:10px;color: gainsboro">
-                <p>
-                    Sign Out
-                </p>
+            <a href="http://localhost:8080/outpass/signout " style="font-size:10px;color: gainsboro">
+                <img src="images\exit.png" height="25px" width="25px">
             </a>
         </div>
     </div>

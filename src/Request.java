@@ -19,11 +19,12 @@ public class Request extends HttpServlet {
         response.setContentType("text/html");
 
         HttpSession session = request.getSession(false);
-        Student student = (Student)session.getAttribute("student");
+        //Student student = (Student)session.getAttribute("student");
         User user = (User)session.getAttribute("user");
         
-        String name = student.name;
+        //String name = student.name;
         String id = user.id;
+
 
         String out_date = request.getParameter("out_date");
         String in_date = request.getParameter("in_date");
@@ -32,12 +33,18 @@ public class Request extends HttpServlet {
         String reason = request.getParameter("reason");
         String route = request.getParameter("route");
         
+        String check = request.getParameter("new");
+        Student student = new Student(user.id);
 
-        Outpass outpass = new Outpass(id,in_date,out_date,priority,reason,"requested",route);
-        outpass.addOutpass();
-        
-        student.updateOutpassCount();
-
+        if(check!=null && check.equals("true")){
+            String oid = request.getParameter("oid");
+            student.updateOutpass(oid, reason);
+        }
+        else{
+            Outpass outpass = new Outpass(id,in_date,out_date,priority,reason,"requested",route);
+            outpass.addOutpass();
+            student.updateOutpassCount();
+        }
         response.sendRedirect("student");
 
     }

@@ -45,11 +45,11 @@
             <p style="font-size: 25px;font-weight: 400;">
                 ${name}
             <p>
-            <div style="margin-left:15px">
-                <a href="/" style="font-size:10px;color: gainsboro">
-                    <img src="images\exit.png" height="25px" width="25px">
-                </a>
-            </div>
+                <div style="margin-left:15px">
+                    <a href="http://localhost:8080/outpass/signout " style="font-size:10px;color: gainsboro">
+                        <img src="images\exit.png" height="25px" width="25px">
+                    </a>
+                </div>
         </div>
     </div>
     <div class="content_pane">
@@ -74,7 +74,7 @@
                 </p>
             </div>
             <div class="view_routes">
-                <a href="ajax_info.txt" download="bus_route">
+                <a href="ajax_info.txt" download="bus_route" style="color:#353b48;">
                     <h3>Bus Routes</h3>
                 </a>
             </div>
@@ -154,16 +154,42 @@
                         </c:choose>
                     </div>
                     <div class="outpass_content">
-                        <ul style="list-style-type:none;">
-                            <li><strong>Out Date:</strong> ${existing_outpass.out_time}</li>
-                            <li><strong>In Date:</strong> ${existing_outpass.in_time}</li>
-                            <li><strong>Type:</strong> ${existing_outpass.type}</li>
-                            <li><strong>Reason:</strong> ${existing_outpass.reason}</li> 
-                        </ul>
+                        <div>
+                            <ul style="list-style-type:none;">
+                                <li><strong>Out Date:</strong> ${existing_outpass.out_time}</li>
+                                <li><strong>In Date:</strong> ${existing_outpass.in_time}</li>
+                                <li><strong>Type:</strong> ${existing_outpass.type}</li>
+                                <li><strong>Reason:</strong> ${existing_outpass.reason}</li> 
+                            </ul>
+                        </div>
                         <div >
                             <c:choose>
                                 <c:when test="${existing_outpass.status == 'under review'}">
                                     <p><strong>Comments -</strong>${existing_outpass.comment}</p>
+                                    <form class="request_form" action="http://localhost:8080/outpass/request">
+                        
+                                        <input type="hidden" class="input_field" name="out_date" value=${existing_outpass.out_time}/>
+                
+                                        <input type="hidden" class="input_field" name="in_date" value=${existing_outpass.in_time} />
+
+                                        <input type="hidden" name="new" value="true"/>
+            
+                                        <input type="hidden" name="oid" value=${existing_outpass.outpass_id} />
+
+                                        <input type="hidden" list="priority_list" name="priority" id="priority" value=${existing_outpass.type} />
+                
+                                       
+                                        <input type="hidden" list="route_list" name="route" id="route" value="S2"/>
+                
+                                        <label>Additional details:</label>
+                                        <textarea rows="5" cols="50"
+                                            style="height: 80px;box-sizing: border-box;width:100%;resize: none;" id="reason"
+                                            name="reason" placeholder="Add details">
+                                            </textarea>
+
+                                        <input type="submit" id="button" />
+                
+                                    </form>
                                 </c:when>
                             </c:choose>
                             <p style="font-size: 30px; padding: 5px; border:2px black solid;border-radius: 8px; text-align: center;box-shadow: 2px 2px 2px gray;">
@@ -190,17 +216,17 @@
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Out Date</th>
-                                    <th>In Date</th>
+                                    <th style="font-size: 14px;">Id</th>
+                                    <th style="font-size: 14px;">Out Date</th>
+                                    <th style="font-size: 14px;">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <c:forEach var="outpass" items="${all_outpass}">
-                                    <tr>
-                                        <td>${outpass.outpass_id}</td>
-                                        <td>${outpass.out_time}</td>
-                                        <td>${outpass.in_time}</td>
+                                    <tr style="font-size: 14px;">
+                                        <td style="font-size: 14px;">${outpass.outpass_id}</td>
+                                        <td style="font-size: 14px;">${outpass.out_time}</td>
+                                        <td style="font-size: 14px;">${outpass.status} : ${outpass.comment}</td>
                                     </tr>
                                 </c:forEach>
                             </tbody>

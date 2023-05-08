@@ -91,6 +91,9 @@ public class Outpass {
     public String getComment() {
         return comment;
     }
+    public String getRoute() {
+        return route;
+    }
     public void updateStatus(String status){
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");

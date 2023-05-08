@@ -77,6 +77,26 @@ public class Student extends User{
             e.toString() ;
         }
     }
+
+    public void updateOutpass(String id, String reason){
+        try{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
+            String query = "UPDATE outpass SET reason = ? WHERE outpass_id = ?";
+        
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, reason);
+            ps.setString(2,id);
+            ps.executeUpdate();
+            
+            con.close();
+            ps.close();
+            
+        }
+        catch(Exception e){
+            System.out.println(e.toString());
+        }
+    }
+
     public Outpass getExistingOutpass(){
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/management", "root", "1234");
@@ -98,6 +118,7 @@ public class Student extends User{
                     rs.getString(6),
                     rs.getString(7),
                     rs.getString(8)
+                    
                 );
             }
             con.close();
@@ -151,8 +172,8 @@ public class Student extends User{
     }
 
     public static void main(String[] args) {
-        Student student = new Student("1");
-        System.out.println(student.getExistingOutpass().comment);
+        Student student = new Student("3");
+        student.updateOutpass("3981", "going home");
     }
 }
 

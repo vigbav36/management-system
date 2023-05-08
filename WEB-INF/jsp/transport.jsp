@@ -41,11 +41,11 @@
             <p style="font-size: 25px;font-weight: 400;">
                 ${name}
             <p>
-            <div style="margin-left:15px">
-                <a href="/" style="font-size:10px;color: gainsboro">
-                    <img src="images\exit.png" height="25px" width="25px">
-                </a>
-            </div>
+                <div style="margin-left:15px">
+                    <a href="http://localhost:8080/outpass/signout " style="font-size:10px;color: gainsboro">
+                        <img src="images\exit.png" height="25px" width="25px">
+                    </a>
+                </div>
         </div>
     </div>
     <div class="content_pane">

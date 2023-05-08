@@ -160,19 +160,25 @@
         </div>
         <div class="choice">
             <c:choose>
-                <c:when test="${outpass.status == 'requested'}">
+                <c:when test="${outpass.status != 'rejected'}">
 
-                    <div class="button" id="accept_button"><a
-                            href="http://localhost:8080/outpass/accept?oid=${outpass.outpass_id}&wid=${warden_id}">Accept</a>
+                    <div class="button1" id="accept_button"><a
+                            href="http://localhost:8080/outpass/accept?oid=${outpass.outpass_id}&wid=${warden_id}"> <img src="images\accept.jpeg" width="30px" height="30px"></a>
                     </div>
 
-                    <div class="button" id="reject_button" onclick="reject()">
-                        Reject
+                    <c:choose>
+                        <c:when test="${outpass.status != 'under review'}">
+                        <div class="button1" id="review_button" onclick="review()">
+                            <img src="images\review.jpeg" width="30px" height="30px">
+                        </div>
+                        </c:when>
+                    </c:choose>
+
+                    <div class="button1" id="reject_button" onclick="reject()">
+                        <img src="images\reject.jpeg" width="30px" height="30px">
                     </div>
 
-                    <div class="button" id="review_button" onclick="review()">
-                        Review
-                    </div>
+                   
                 </c:when>
                 <c:otherwise>
                     <c:choose>

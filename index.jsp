@@ -24,7 +24,7 @@ and open the template in the editor.
             <h3>Outpass Management System</h3>
         </div>
         <div class="login-box">
-            <form class="login-form" action="http://localhost:8080/outpass/login" method="get">
+            <form class="login-form" action="http://localhost:8080/outpass/login" method="post">
                 <input type="text" id="email" name="email" placeholder="Email">
                 <input type="password" id="password" name="password" placeholder="Password">
                 <h5>${message}</h5>

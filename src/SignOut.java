@@ -16,7 +16,7 @@ public class SignOut extends HttpServlet {
         response.setContentType("text/html");
         HttpSession session = request.getSession(false);
         session.invalidate();
-        response.sendRedirect("");
+        response.sendRedirect(request.getContextPath() + "/");
     }  
 }
 
