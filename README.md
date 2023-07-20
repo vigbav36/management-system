@@ -1,2 +1,8 @@
-# Out-pass Management System 
-### (yes out-pass is a word)
+# Outpass Management System 
+### (yes outpass is a word)
+
+Built using Java and JSP.<br>
+Deployed on a Tomcat Server.
+
+
+The documents folder has the documentation for this application.
